@@ -1,0 +1,142 @@
+/**
+ * @author      OA Wu <comdan66@gmail.com>
+ * @copyright   Copyright (c) 2017 OA Wu Design
+ * @license     http://creativecommons.org/licenses/by-nc/2.0/tw/
+ */
+
+@import "_oa";
+
+#l {
+  .a {
+    left: 60px;
+  }
+  position: relative;
+  // border: 1px solid rgba(255, 0, 0, .3);
+  &:before, &:after {
+    content: '';
+    position: absolute;
+    display: inline-block;
+    width: 1px;
+    background-color: rgba(200, 200, 200, 1);
+    @include box-shadow(1px 0 1px rgba(255, 255, 255, 1));
+  }
+  &:before {
+    content: '';
+    bottom: 0;
+    left: 60px + 80px / 2 - 10px / 2;
+    width: 10px;
+    height: 10px;
+    @include border-radius(50%);
+    z-index: -4;
+    background-color: rgba(190, 190, 190, 1);
+    @include box-shadow(1px 1px 1px white, inset 1px 1px 1px rgba(0, 0, 0, .1));
+  }
+  &:after {
+    top: 0;
+    left: 60px + 80px / 2 - 1px / 2;
+    height: calc(100% - 10px);
+    z-index: -3;
+  }
+
+
+  > a {
+    display: inline-block;
+    width: calc(100% - (60px + 80px - 35px / 2));
+    word-break: break-all;
+    text-align: left;
+    margin-left: (60px + 80px - 35px / 2);
+    margin-top: 40px;
+    padding: 16px;
+    color: rgba(85, 85, 85, 1);
+    @include border-radius(3px);
+
+    + a {
+      margin-top: 16px;
+    }
+
+    i, &:before, &:after {
+      content: '';
+      position: absolute;
+      display: inline-block;
+
+      overflow: hidden;
+      background-color: white;
+    }
+    &:before, &:after {
+      width: 10px;
+      height: 10px;
+      left: -5px;
+      top: 20px;
+      z-index: 2;
+      @include rotate(45deg);
+    }
+    &:after {
+      z-index: -1;
+      @include box-shadow(-1px 1px 1px rgba(0, 0, 0, 0.125));
+    }
+    i {
+      top: 7px;
+      left: -40px;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      text-align: center;
+      z-index: -2;
+      overflow: visible;
+      background-color: rgba(64, 167, 152, 1.00);
+      color: white;
+      @include border-radius(50%);
+      @include box-shadow(0 0 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
+      
+      // &:after {
+      //   content: '2017.01.12 - ';
+      //   position: absolute;
+      //   left: 0 - (80px);
+      //   top: 0;
+      //   display: inline-block;
+      //   width: 80px;
+      //   font-size: 10px;
+      //   color: gray;
+      //   text-align: right;
+      //   padding-right: 10px;
+      //   color: rgba(120, 120, 120, 1);
+      //   @include text-shadow(1px 1px 1px rgba(255, 255, 255, 1));
+      // }
+    }
+    time {
+      position: absolute;
+      left: -(80px + 35px + 4px + 4px);
+      top: 12px;
+      display: inline-block;
+      width: 80px;
+      height: 25px;
+      line-height: 25px;
+
+      font-size: 10px;
+      text-align: right;
+      color: rgba(120, 120, 120, 1);
+      @include text-shadow(1px 1px 1px rgba(255, 255, 255, 1));
+      &:after {
+        content: '－';
+        color: rgba(180, 180, 180, 1);
+        margin-left: 4px;
+        @include text-shadow(none);
+      }
+    }
+
+    // &:before {
+    //   content: '';
+    //   position: absolute;
+    //   left: -11px;
+    //   top: 0;
+    //   display: inline-block;
+    //   width: 11px;
+    //   height: 11px;
+
+    //   border: 5.5px solid rgba(0, 0, 0, 1);
+    //   border-bottom-color: transparent;
+    //   border-left-color: transparent;
+    //   overflow: hidden;
+    // }
+  }
+}
