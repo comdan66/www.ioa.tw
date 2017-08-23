@@ -5,6 +5,8 @@
  */
 
 var OAIL=OAIL||{VER:"0.9.944"};OAIL.bgs_Available=!1,OAIL.bgs_CheckRunned=!1,OAIL.injectCss=".OAIL img {visibility:hidden}",function(i){function t(){if(!OAIL.bgs_CheckRunned){OAIL.bgs_CheckRunned=!0;var t=i('<span style="background-size:cover" />');i("body").append(t),!function(){var i=t[0];if(i&&window.getComputedStyle){var e=window.getComputedStyle(i,null);e&&e.backgroundSize&&(OAIL.bgs_Available="cover"===e.backgroundSize)}}(),t.remove()}}i.fn.extend({OAIL:function(e){this.defaults={fill:!0,verticalAlign:"center",horizontalAlign:"center",useBackgroundSize:!0,useDataHtmlAttr:!0,responsive:!0,delay:0,fadeInTime:0,removeBoxBackground:!0,hardPixels:!0,responsiveCheckTime:500,timecheckvisibility:500,onStart:null,onFinish:null,onItemStart:null,onItemFinish:null,onItemError:null},t();var a=this;return this.options=e,this.settings=i.extend({},this.defaults,this.options),this.settings.onStart&&this.settings.onStart(),this.each(function(t){function e(){-1===u.css("background-image").indexOf(encodeURI(c.attr("src")))&&u.css({"background-image":'url("'+encodeURI(c.attr("src"))+'")'}),u.css({"background-size":g.fill?"cover":"contain","background-position":(g.horizontalAlign+" "+g.verticalAlign).toLowerCase(),"background-repeat":"no-repeat"}),i("a:first",u).css({display:"block",width:"100%",height:"100%"}),i("img",u).css({display:"none"}),g.onItemFinish&&g.onItemFinish(t,u,c),u.addClass("OAIL_bgSize"),u.addClass("OAIL_ready"),l()}function d(){function e(){c.data("OAIL_error")||c.data("OAIL_loaded")||c.data("OAIL_oldProcessed")||(u.is(":visible")&&c[0].complete&&c[0].width>0&&c[0].height>0?(c.data("OAIL_loaded",!0),setTimeout(r,t*g.delay)):setTimeout(e,g.timecheckvisibility))}if(c.data("oldSrc")&&c.data("oldSrc")!==c.attr("src")){var a=c.clone().removeAttr("style");return a.data("OAIL_settings",c.data("OAIL_settings")),c.parent().prepend(a),c.remove(),c=a,c[0].width=0,setTimeout(d,10),void 0}return c.data("OAIL_oldProcessed")?(r(),void 0):(c.data("OAIL_oldProcessed",!1),c.data("oldSrc",c.attr("src")),i("img:not(:first)",u).css("display","none"),u.css({overflow:"hidden"}),c.fadeTo(0,0).removeAttr("width").removeAttr("height").css({visibility:"visible","max-width":"none","max-height":"none",width:"auto",height:"auto",display:"block"}),c.on("error",n),c[0].onerror=n,e(),o(),void 0)}function o(){(g.responsive||c.data("OAIL_oldProcessed"))&&c.data("OAIL_settings")&&(g=c.data("OAIL_settings"),u.actualSize=u.get(0).offsetWidth+u.get(0).offsetHeight/1e4,u.sizeOld&&u.actualSize!==u.sizeOld&&r(),u.sizeOld=u.actualSize,setTimeout(o,g.responsiveCheckTime))}function n(){c.data("OAIL_error",!0),u.addClass("OAIL_error"),g.onItemError&&g.onItemError(t,u,c),l()}function s(){var i={};if(a.settings.useDataHtmlAttr){var t=u.attr("data-OAIL-fill"),e=u.attr("data-OAIL-horizontalAlign"),d=u.attr("data-OAIL-verticalAlign");("true"===t||"false"===t)&&(i.fill=Boolean("true"===t)),void 0===e||"left"!==e&&"center"!==e&&"right"!==e&&-1===e.indexOf("%")||(i.horizontalAlign=e),void 0===d||"top"!==d&&"bottom"!==d&&"center"!==d&&-1===d.indexOf("%")||(i.verticalAlign=d)}return OAIL.isIE&&a.settings.ieFadeInDisabled&&(i.fadeInTime=0),i}function r(){var i,e,a,d,o,n,s,r,m=0,h=0,f=u.width(),v=u.height();void 0===c.data("owidth")&&c.data("owidth",c[0].width),void 0===c.data("oheight")&&c.data("oheight",c[0].height),g.fill===f/v>=c.data("owidth")/c.data("oheight")?(i="100%",e="auto",a=Math.floor(f),d=Math.floor(f*(c.data("oheight")/c.data("owidth")))):(i="auto",e="100%",a=Math.floor(v*(c.data("owidth")/c.data("oheight"))),d=Math.floor(v)),o=g.horizontalAlign.toLowerCase(),s=f-a,"left"===o&&(h=0),"center"===o&&(h=.5*s),"right"===o&&(h=s),-1!==o.indexOf("%")&&(o=parseInt(o.replace("%",""),10),o>0&&(h=.01*s*o)),n=g.verticalAlign.toLowerCase(),r=v-d,"left"===n&&(m=0),"center"===n&&(m=.5*r),"bottom"===n&&(m=r),-1!==n.indexOf("%")&&(n=parseInt(n.replace("%",""),10),n>0&&(m=.01*r*n)),g.hardPixels&&(i=a,e=d),c.css({width:i,height:e,"margin-left":Math.floor(h),"margin-top":Math.floor(m)}),c.data("OAIL_oldProcessed")||(c.fadeTo(g.fadeInTime,1),c.data("OAIL_oldProcessed",!0),g.removeBoxBackground&&u.css("background-image","none"),u.addClass("OAIL_nobgSize"),u.addClass("OAIL_ready")),g.onItemFinish&&g.onItemFinish(t,u,c),l()}function l(){t===a.length-1&&a.settings.onFinish&&a.settings.onFinish()}var g=a.settings,u=i(this),c=i("img:first",u);return c.length?(c.data("OAIL_settings")?(u.removeClass("OAIL_error").removeClass("OAIL_ready"),g=i.extend({},c.data("OAIL_settings"),a.options)):g=i.extend({},a.settings,s()),c.data("OAIL_settings",g),g.onItemStart&&g.onItemStart(t,u,c),OAIL.bgs_Available&&g.useBackgroundSize?e():d(),void 0):(n(),void 0)})}})}(jQuery),!function(){var i=OAIL.injectCss,t=document.getElementsByTagName("head")[0],e=document.createElement("style");e.type="text/css",e.styleSheet?e.styleSheet.cssText=i:e.appendChild(document.createTextNode(i)),t.appendChild(e)}();
+!function(t){"function"==typeof define&&define.amd?define(["jquery"],t):t(jQuery)}(function(t){function e(){var e=a(this),o=n.settings,s=t(this).data("tag");return isNaN(e.datetime)||(0==o.cutoff||r(e.datetime)<o.cutoff)&&(""==s||void 0===s?t(this).text(i(e.datetime)):t(this).data(s,i(e.datetime))),this}function a(e){if(!(e=t(e)).data("timeago")){e.data("timeago",{datetime:n.datetime(e)});var a=t.trim(e.text());n.settings.localeTitle?e.attr("title",e.data("timeago").datetime.toLocaleString()):!(a.length>0)||n.isTime(e)&&e.attr("title")||e.attr("title",a)}return e.data("timeago")}function i(t){return n.inWords(r(t))}function r(t){return(new Date).getTime()-t.getTime()}t.timeago=function(e){return i(e instanceof Date?e:"string"==typeof e?t.timeago.parse(e):"number"==typeof e?new Date(e):t.timeago.datetime(e))};var n=t.timeago;t.extend(t.timeago,{settings:{refreshMillis:6e4,allowFuture:!1,localeTitle:!1,cutoff:0,strings:{prefixAgo:null,prefixFromNow:null,suffixAgo:"ago",suffixFromNow:"from now",seconds:"less than a minute",minute:"about a minute",minutes:"%d minutes",hour:"about an hour",hours:"about %d hours",day:"a day",days:"%d days",month:"about a month",months:"%d months",year:"about a year",years:"%d years",wordSeparator:" ",numbers:[]}},inWords:function(e){function a(a,r){var n=t.isFunction(a)?a(r,e):a,o=i.numbers&&i.numbers[r]||r;return n.replace(/%d/i,o)}var i=this.settings.strings,r=i.prefixAgo,n=i.suffixAgo;this.settings.allowFuture&&e<0&&(r=i.prefixFromNow,n=i.suffixFromNow);var o=Math.abs(e)/1e3,s=o/60,u=s/60,m=u/24,d=m/365,l=o<45&&a(i.seconds,Math.round(o))||o<90&&a(i.minute,1)||s<45&&a(i.minutes,Math.round(s))||s<90&&a(i.hour,1)||u<24&&a(i.hours,Math.round(u))||u<42&&a(i.day,1)||m<30&&a(i.days,Math.round(m))||m<45&&a(i.month,1)||m<365&&a(i.months,Math.round(m/30))||d<1.5&&a(i.year,1)||a(i.years,Math.round(d)),f=i.wordSeparator||"";return void 0===i.wordSeparator&&(f=" "),t.trim([r,l,n].join(f))},parse:function(e){var a=t.trim(e);return a=a.replace(/\.\d+/,""),a=a.replace(/-/,"/").replace(/-/,"/"),a=a.replace(/T/," ").replace(/Z/," UTC"),a=a.replace(/([\+\-]\d\d)\:?(\d\d)/," $1$2"),a=a.replace(/([\+\-]\d\d)$/," $100"),new Date(a)},datetime:function(e){var a=n.isTime(e)?t(e).attr("datetime"):t(e).data("time");return n.parse(a)},isTime:function(e){return"time"===t(e).get(0).tagName.toLowerCase()}});var o={init:function(){var a=t.proxy(e,this);a();var i=n.settings;i.refreshMillis>0&&(this._timeagoInterval=setInterval(a,i.refreshMillis))},update:function(a){var i=n.parse(a);t(this).data("timeago",{datetime:i}),n.settings.localeTitle&&t(this).attr("title",i.toLocaleString()),e.apply(this)},updateFromDOM:function(){t(this).data("timeago",{datetime:n.parse(n.isTime(this)?t(this).attr("datetime"):t(this).attr("title"))}),e.apply(this)},dispose:function(){this._timeagoInterval&&(window.clearInterval(this._timeagoInterval),this._timeagoInterval=null)}};t.fn.timeago=function(t,e){var a=t?o[t]:o.init;if(!a)throw new Error("Unknown function name '"+t+"' for timeago");return this.each(function(){a.call(this,e)}),this},document.createElement("abbr"),document.createElement("time")});
+jQuery.timeago.settings.strings={prefixAgo:null,prefixFromNow:"從現在開始",suffixAgo:"之前",suffixFromNow:null,seconds:"不到 1 分鐘",minute:"約 1 分鐘",minutes:"%d 分鐘",hour:"約 1 小時",hours:"%d 小時",day:"約 1 天",days:"%d 天",month:"約 1 個月",months:"%d 個月",year:"約 1 年",years:"%d 年",numbers:[],wordSeparator:""};
 
 window.fbAsyncInit = function () { FB.init ({ appId: '151833618725768', cookie: true, xfbml: true, version: 'v2.10' }); };
 (function(d, s, id){ var js, fjs = d.getElementsByTagName(s)[0]; if (d.getElementById(id)) {return;} js = d.createElement(s); js.id = id; js.src = "//connect.facebook.net/zh_TW/sdk.js"; fjs.parentNode.insertBefore(js, fjs); }(document, 'script', 'facebook-jssdk'));
@@ -23,7 +25,7 @@ $(function () {
       var items = $obj.get (0).$objs.map (function () {
         var $img = $(this).find ('img'), $figcaption = $(this).find ('figcaption'), $himg = $(this).find ('img.h');
           var $i = $himg.length ? $himg : $img;
-          return { w: $i.get (0).width, h: $i.get (0).height, src: $i.attr ('src'), href: $(this).attr ('href'), title: $figcaption.html (), content: $figcaption.data ('description'), el: $(this).get (0), };
+          return { w: $i.get (0).width, h: $i.get (0).height, src: $i.attr ('src'), href: $(this).attr ('href'), title: $img.attr ('alt'), content: $figcaption.html (), el: $(this).get (0), };
         }).toArray (), options = {
           showHideOpacity: true,
           galleryUID: $obj.data ('pswp-uid'),
@@ -51,7 +53,8 @@ $(function () {
       gallery.listen ('afterChange', function() { $pswp.get (0).$conter.addClass ('show'); });
       gallery.listen ('resize', function() { $pswp.get (0).$conter.width (Math.floor (gallery.currItem.w * gallery.currItem.fitRatio - 20)); });
     };
-    var $pswp = $('<div class="pswp"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="關閉 (Esc)"></button><button class="pswp__button pswp__button--share" title="分享"></button><button class="pswp__button pswp__button--link" title="鏈結"></button><button class="pswp__button pswp__button--fs" title="全螢幕切換"></button><button class="pswp__button pswp__button--zoom" title="放大/縮小"></button><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="上一張"></button><button class="pswp__button pswp__button--arrow--right" title="下一張"></button><div class="pswp__caption"><div class="pswp__caption__center"></div></div></div></div></div>').appendTo ($_body), $obj = $(gs), params = {};
+    var $pswp = $('<div class="pswp"><div class="pswp__bg"></div><div class="pswp__scroll-wrap"><div class="pswp__container"><div class="pswp__item"></div><div class="pswp__item"></div><div class="pswp__item"></div></div><div class="pswp__ui pswp__ui--hidden"><div class="pswp__top-bar"><div class="pswp__counter"></div><button class="pswp__button pswp__button--close" title="關閉 (Esc)"></button><button class="pswp__button pswp__button--share" title="分享"></button><button class="pswp__button pswp__button--link" title="鏈結"></button><button class="pswp__button pswp__button--fs" title="全螢幕切換"></button><button class="pswp__button pswp__button--zoom" title="放大/縮小"></button><div class="pswp__preloader"><div class="pswp__preloader__icn"><div class="pswp__preloader__cut"><div class="pswp__preloader__donut"></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class="pswp__share-tooltip"></div></div><button class="pswp__button pswp__button--arrow--left" title="上一張"></button><button class="pswp__button pswp__button--arrow--right" title="下一張"></button><div class="pswp__caption"><div class="pswp__caption__center"></div></div></div></div></div>').appendTo ($_body),
+    $obj = (gs instanceof jQuery) ? gs : $(gs), params = {};
     if (!$obj.length) return false;
 
     $pswp.get (0).$conter = $pswp.find ('div.pswp__caption__center');
@@ -68,11 +71,11 @@ $(function () {
   }
   $('._ic').OAIL ({verticalAlign: 'center'});
 
-  var $section = $('article > section');
+  var $section = $('.ar > .s');
   $section.find ('p > img').map (function (i) {
     var $parent = $(this).parent (),
         text = $parent.text (),
-        $img = $('<img />').attr ('src', $(this).attr ('src'));
+        $img = $(this).clone (true);
         $figure = $('<figure />');
 
     if ($(this).data ('pvid')) $figure.attr ('data-pvid', $(this).data ('pvid'));
@@ -82,13 +85,16 @@ $(function () {
     return $(this);
   }).each (function (i) { $(this).parent ().remove (); });
 
-  var $el = $section.find ('> *'), figures = [];
-  for (var i = 0; i < $el.length; i++) if ($el.eq (i).is ('figure')) figures.push ($el.eq (i).clone (true)); else if (figures.length) oasort (figures.length).forEach (function (c) { $('<div />').addClass ('ps').addClass ('n' + c).append (figures.splice (0, c)).insertBefore ($el.eq (i)); });
-  if (figures.length) oasort (figures.length).forEach (function (c) { $('<div />').addClass ('ps').addClass ('n' + c).append (figures.splice (0, c)).appendTo ($section); });
-  $section.find ('> figure').remove ();
-  $section.find ('.ps figure').each (function (i) { $(this).OAIL ({verticalAlign: 'center'}).attr ('href', $section.data ('url') + '#&gid=1&pid=' + (i + 1) +'&id=0'); });
+  $section.each (function () {
+    var $el = $(this).find ('> *'), figures = [];
+    for (var i = 0; i < $el.length; i++) if ($el.eq (i).is ('figure')) figures.push ($el.eq (i).clone (true)); else if (figures.length) oasort (figures.length).forEach (function (c) { $('<div />').addClass ('ps').addClass ('n' + c).append (figures.splice (0, c)).insertBefore ($el.eq (i)); });
 
-  OAIPS ('article > section', 'figure');
+    if (figures.length) $(this).append (oasort (figures.length).map (function (c) { return $('<div />').addClass ('ps').addClass ('n' + c).append (figures.splice (0, c)); }));
+    $(this).find ('> figure').remove ();
+    $(this).find ('.ps figure').each (function (i) { $(this).OAIL ({verticalAlign: 'center'}).attr ('href', $section.data ('url') + '#&gid=1&pid=' + (i + 1) +'&id=0'); });
+
+    OAIPS ($(this), 'figure');
+  });
   
   var $b = $('#b');
   var $el = $b.find ('> *'), figures = [];
@@ -99,4 +105,81 @@ $(function () {
 
   OAIPS ('#b', 'figure');
 
+
+  var objs = [
+    { time: '2017-01-12', title: '了女以空飛是裡都點', content: 'asda', icon: 'icon-t', url: '1', images: [] },
+    { time: '2017-02-12', title: '及究上著年提家叫直快無死', content: '子目見果業技速能本我樓，重行未先，一像人術代小時！而起明信年，影亮者由工設傳王少德不：許我同。', icon: 'icon-g', url: '2', images: [] },
+    { time: '2017-07-12', title: '安格女義好眼任', content: '果觀現料熱更力我歡價我，談差問……除令過人到後友班物子示已師部禮香進，們大車仍河平。打不己……車懷衣行以樂情企前。的苦問較氣好快列人行做不全海世我人是經人風食賽為', icon: 'icon-a', url: '3', images: [ {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'} ] },
+    { time: '2017-04-12', title: '公量機卻合印來遊縣當球新', content: '重一後往生為技護童幾發業應模會笑天真樓是小電……向海認？候成片在容：空模傳不話打曾代文醫羅本世，平去客難細得他？清草改品要風我書委落外為作？利策流感們利。車制表文', icon: 'icon-st', url: '4', images: [] },
+    { time: '2017-05-12', title: '安格女義好眼任', content: '果觀現料熱更力我歡價我，談差問……除令過人到後友班物子示已師部禮香進，們大車仍河平。打不己……車懷衣行以樂情企前。的苦問較氣好快列人行做不全海世我人是經人風食賽為', icon: 'icon-t', url: '3', images: [ {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'} ] },
+    { time: '2017-03-12', title: '了女以空飛是裡都點', content: 'asda', icon: 'icon-g', url: '1', images: [] },
+    { time: '2017-04-12', title: '公量機卻合印來遊縣當球新', content: '重一後往生為技護童幾發業應模會笑天真樓是小電……向海認？候成片在容：空模傳不話打曾代文醫羅本世，平去客難細得他？清草改品要風我書委落外為作？利策流感們利。車制表文', icon: 'icon-st', url: '4', images: [] },
+    { time: '2017-02-12', title: '及究上著年提家叫直快無死', content: '子目見果業技速能本我樓，重行未先，一像人術代小時！而起明信年，影亮者由工設傳王少德不：許我同。', icon: 'icon-g', url: '2', images: [] },
+    { time: '2017-07-12', title: '安格女義好眼任', content: '果觀現料熱更力我歡價我，談差問……除令過人到後友班物子示已師部禮香進，們大車仍河平。打不己……車懷衣行以樂情企前。的苦問較氣好快列人行做不全海世我人是經人風食賽為', icon: 'icon-a', url: '3', images: [ {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'} ] },
+    { time: '2017-01-12', title: '了女以空飛是裡都點', content: 'asda', icon: 'icon-t', url: '1', images: [] },
+    { time: '2017-02-12', title: '及究上著年提家叫直快無死', content: '子目見果業技速能本我樓，重行未先，一像人術代小時！而起明信年，影亮者由工設傳王少德不：許我同。', icon: 'icon-g', url: '2', images: [] },
+    { time: '2017-07-12', title: '安格女義好眼任', content: '果觀現料熱更力我歡價我，談差問……除令過人到後友班物子示已師部禮香進，們大車仍河平。打不己……車懷衣行以樂情企前。的苦問較氣好快列人行做不全海世我人是經人風食賽為', icon: 'icon-a', url: '3', images: [ {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'} ] },
+    { time: '2017-04-12', title: '公量機卻合印來遊縣當球新', content: '重一後往生為技護童幾發業應模會笑天真樓是小電……向海認？候成片在容：空模傳不話打曾代文醫羅本世，平去客難細得他？清草改品要風我書委落外為作？利策流感們利。車制表文', icon: 'icon-st', url: '4', images: [] },
+    { time: '2017-05-12', title: '安格女義好眼任', content: '果觀現料熱更力我歡價我，談差問……除令過人到後友班物子示已師部禮香進，們大車仍河平。打不己……車懷衣行以樂情企前。的苦問較氣好快列人行做不全海世我人是經人風食賽為', icon: 'icon-t', url: '3', images: [ {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'} ] },
+    { time: '2017-03-12', title: '了女以空飛是裡都點', content: 'asda', icon: 'icon-g', url: '1', images: [] },
+    { time: '2017-04-12', title: '公量機卻合印來遊縣當球新', content: '重一後往生為技護童幾發業應模會笑天真樓是小電……向海認？候成片在容：空模傳不話打曾代文醫羅本世，平去客難細得他？清草改品要風我書委落外為作？利策流感們利。車制表文', icon: 'icon-st', url: '4', images: [] },
+    { time: '2017-02-12', title: '及究上著年提家叫直快無死', content: '子目見果業技速能本我樓，重行未先，一像人術代小時！而起明信年，影亮者由工設傳王少德不：許我同。', icon: 'icon-g', url: '2', images: [] },
+    { time: '2017-07-12', title: '安格女義好眼任', content: '果觀現料熱更力我歡價我，談差問……除令過人到後友班物子示已師部禮香進，們大車仍河平。打不己……車懷衣行以樂情企前。的苦問較氣好快列人行做不全海世我人是經人風食賽為', icon: 'icon-a', url: '3', images: [ {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'}, {text: 'ssssssssss', ori: 'https://storage.googleapis.com/material-design/publish/material_v_11/assets/0Bzhp5Z4wHba3WEdram5wd1ZMRHM/layout_structure_sidenav_structure3.png', src: 'https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301'} ] },
+  ];
+
+
+  var $_l = $('#l');
+  var $_lb = $('#l + button');
+
+  function initObjElement (obj) {
+    return $('<section />').addClass ('s').append (
+      $('<div />').addClass ('o').append (
+        $('<time />').attr ('data-time', obj.time).text ($.timeago (obj.time))).append (
+        $('<i />').addClass (obj.icon)).append (
+        $('<h3 />').text (obj.title)).append (
+        $('<p />').text (obj.content)).append (
+        obj.images.length ? $('<div />').addClass ('n' + obj.images.length).append (obj.images.map (function (t, i) {
+          return (obj.images.length == i + 1 ? $('<a />') : $('<figure />').attr ('data-ori', t.ori)).addClass ('ic').append (
+            $('<img />').attr ('src', t.src)).append (
+            $('<figcaption />').text (t.text));
+        })) : null).append (
+        obj.url.length ? $('<span />').append ($('<a />').attr ('href', obj.url).text ('詳細內容')) : null));
+  }
+  function initObjFeature ($obj) {
+    $obj.find ('.ic').OAIL ({verticalAlign: 'center'});
+    setTimeout (function () { $obj.addClass ('ani'); }, 300);
+    OAIPS ($obj, 'figure');
+    return $obj;
+  }
+  function loadObjs () {
+    if (!objs.length) return;
+
+    $_lb.get (0).c++;
+
+    objs.sort (function (a,b) {
+      a = new Date (a.time);
+      b = new Date (b.time);
+      return a > b ? -1 : a < b ? 1 : 0;
+    }); 
+    objs.splice (0, 3).forEach (function (t) {
+      initObjFeature ($(initObjElement (t)).appendTo ($_l));
+    });
+
+    if (!objs.length) $_lb.remove ();
+
+    clearTimeout ($_lb.get (0).st);
+    $_lb.get (0).st = null;
+  }
+
+  if ($_lb.length) {
+    $_lb.get (0).c = 0;
+    $_lb.click (loadObjs);
+    $(window).scroll (function () {
+      if ($_lb.get (0).c >= 3) return;
+      if ($_lb.get (0).st) return;
+      if (!($(window).height () + $(window).scrollTop () > $_lb.offset ().top - 80)) return;
+
+      $_lb.get (0).st = setTimeout (loadObjs, 500);
+    }).scroll ();
+  }
 });
