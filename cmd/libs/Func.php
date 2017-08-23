@@ -83,3 +83,95 @@ if (!function_exists ('params')) {
     return $return;
   }
 }
+
+
+
+
+// ==================
+
+// ==================
+
+if (!function_exists ('mkdir777')) {
+  function mkdir777 ($path) {
+    $oldmask = umask (0);
+    @mkdir ($path, 0777, true);
+    umask ($oldmask);
+    return true;
+  }
+}
+
+if (!function_exists ('deleteDir')) {
+  function deleteDir ($dir, $is_root = true) {
+    if (!file_exists ($dir)) return true;
+    
+    $dir = rtrim ($dir, DIRECTORY_SEPARATOR);
+    if (!$currentDir = @opendir ($dir))
+      return false;
+
+    while (false !== ($filename = @readdir ($currentDir)))
+      if (($filename != '.') && ($filename != '..'))
+        if (is_dir ($dir . DIRECTORY_SEPARATOR . $filename)) if (substr ($filename, 0, 1) != '.') deleteDir ($dir . DIRECTORY_SEPARATOR . $filename); else;
+        else unlink ($dir . DIRECTORY_SEPARATOR . $filename);
+
+    @closedir ($currentDir);
+
+    return $is_root ? @rmdir ($dir) : true;
+  }
+}
+
+
+if (!function_exists ('typeOfImg')) {
+  function typeOfImg ($t) {
+    return 'image/' . (($t = pathinfo (MAIN_OG_URL)) && isset ($t['extension']) && $t['extension'] ? $t['extension'] : 'jpg');
+  }
+}
+if (!function_exists ('removeHtmlTag')) {
+  function removeHtmlTag ($text, $space = true) {
+    return preg_replace ("/\s+/u", $space ? " " : "", preg_replace ("/&#?[a-z0-9]+;/iu", "", str_replace ('▼', '', str_replace ('▲', '', trim (strip_tags ($text))))));
+  }
+}
+
+if (!function_exists ('urlFormat')) {
+  function urlFormat ($str) {
+    return preg_replace ('/[\/%]/u', ' ', $str);
+  }
+}
+if (!function_exists ('urlFormatArticle')) {
+  function urlFormatArticle ($id, $title) {
+    return urlFormat ($id . '-' . $title . HTML);
+  }
+}
+if (!function_exists ('urlFormatWork')) {
+  function urlFormatWork ($id, $title) {
+    return urlFormat ($id . '-' . $title . HTML);
+  }
+}
+if (!function_exists ('urlArticle')) {
+  function urlArticle ($id, $title) {
+    return URL_ARTICLE . rawurlencode (urlFormatArticle ($id, $title));
+  }
+}
+if (!function_exists ('pathArticle')) {
+  function pathArticle ($id, $title) {
+    return PATH_ARTICLE . urlFormatArticle ($id, $title);
+  }
+}
+if (!function_exists ('urlWrok')) {
+  function urlWrok ($id, $title) {
+    return URL_WORK . rawurlencode (urlFormatWork ($id, $title));
+  }
+}
+if (!function_exists ('pathWrok')) {
+  function pathWrok ($id, $title) {
+    return PATH_WORK . urlFormatWork ($id, $title);
+  }
+}
+
+if (!function_exists ('columnArray')) {
+  function columnArray ($objects, $key, $callback = null) {
+    return array_map (function ($object) use ($key, $callback) {
+      $t = !is_array ($object) ? is_object ($object) ? $object->$key : $object : $object[$key];
+      return $callback && is_callable ($callback) ? $callback ($t) : $t;
+    }, $objects);
+  }
+}

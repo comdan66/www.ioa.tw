@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="tw">
   <head>
-    <?php echo isset ($meta) ? implode (DEV ? "\n" : '', $meta) : '';?>
-    <title><?php echo (isset ($title) && $title ? $title . ' - ' : '') . MAIN_TITLE;?></title>
-    <?php echo isset ($link) ? implode (DEV ? "\n" : '', $link) : '';?>
-    <?php echo isset ($css) ? implode (DEV ? "\n" : '', $css) : '';?>
-    <?php echo isset ($js) ? implode (DEV ? "\n" : '', $js) : '';?>
+    <?php echo isset ($meta) && $meta ? $meta : '';?>
+    <?php echo isset ($title) && $title ? $title : '';?>
+    <?php echo isset ($link) && $link ? $link : '';?>
+    <?php echo isset ($css) && $css ? $css : '';?>
+    <?php echo isset ($js) && $js ? $js : '';?>
     <?php echo isset ($jsonLd) ? $jsonLd : '';?>
   </head>
   <body lang="zh-tw">
