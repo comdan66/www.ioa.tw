@@ -9,8 +9,11 @@
 class Load {
   private $d4Metas = array ();
   private $d4Links = array ();
+  private $pais = array ();
 
-  public function __construct () {
+  public function __construct ($pais) {
+    $this->pais = $pais;
+
     $this->d4Metas = array (
       array ('_k' => 'c',     'charset' => 'utf-8'),
       array ('_k' => 'hct',   'http-equiv' => 'Content-type',                     'content' => 'text/html; charset=utf-8'),
@@ -19,13 +22,13 @@ class Load {
       array ('_k' => 'nv',    'name' => 'viewport',                               'content' => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui'),
       array ('_k' => 'nr',    'name' => 'robots',                                 'content' => DEV ? 'noindex,nofollow' : 'index,follow'),
       array ('_k' => 'nk',    'name' => 'keywords',                               'content' => MAIN_KEYWORDS),
-      array ('_k' => 'nd',    'name' => 'description',                            'content' => mb_strimwidth (removeHtmlTag (MAIN_DESCRIPTION, false), 0, 150, '…','UTF-8')),
+      array ('_k' => 'nd',    'name' => 'description',                            'content' => strCat (MAIN_DESCRIPTION, 150)),
       array ('_k' => 'nmtc',  'name' => 'msapplication-TileColor',                'content' => '#3db990'),
       array ('_k' => 'nmti',  'name' => 'msapplication-TileImage',                'content' => URL_IMG_FAVICON . 'ms-icon-144x144.png'),
       array ('_k' => 'nt',    'name' => 'theme-color',                            'content' => '#3db990'),
       array ('_k' => 'pou',   'property' => 'og:url',                             'content' => PAGE_URL_INDEX),
       array ('_k' => 'poi',   'property' => 'og:title',                           'content' => MAIN_TITLE),
-      array ('_k' => 'pod',   'property' => 'og:description',                     'content' => mb_strimwidth (removeHtmlTag (MAIN_DESCRIPTION, false), 0, 300, '…','UTF-8')),
+      array ('_k' => 'pod',   'property' => 'og:description',                     'content' => strCat (MAIN_DESCRIPTION, 300, false)),
       array ('_k' => 'pos',   'property' => 'og:site_name',                       'content' => MAIN_TITLE),
       array ('_k' => 'pfm',   'property' => 'fb:admins',                          'content' => FB_ADMIN_ID),
       array ('_k' => 'pda',   'property' => 'fb:app_id',                          'content' => FB_APP_ID),
@@ -56,10 +59,14 @@ class Load {
       array ('_k' => 'ris96x96',   'rel' => 'icon',             'sizes' => '96x96',   'type' => 'image/png', 'href' => URL_IMG_FAVICON . 'favicon-96x96.png'),
       array ('_k' => 'ris16x16',   'rel' => 'icon',             'sizes' => '16x16',   'type' => 'image/png', 'href' => URL_IMG_FAVICON . 'favicon-16x16.png'),
       array ('_k' => 'rm',         'rel' => 'manifest',                                                      'href' => URL_IMG_FAVICON . 'manifest.json'),
+      array ('_k' => 'rc',         'rel' => 'canonical',                                                     'href' => PAGE_URL_INDEX),
+      array ('_k' => 'ra',         'rel' => 'alternate',                                                     'href' => PAGE_URL_INDEX, 'hreflang' => 'zh-Hant'),
       array ('_k' => 'rs',         'rel' => 'stylesheet',                             'type' => 'text/css',  'href' => 'https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700')
     );
   }
   private function _view ($__o__p__ = '', $__o__d__ = array ()) {
+    $__o__d__ = array_merge ($__o__d__, $this->pais);
+
     if (!$__o__p__) return '';
     extract ($__o__d__); ob_start ();
     if (((bool)@ini_get ('short_open_tag') === FALSE) && (false == TRUE)) echo eval ('?>' . preg_replace ("/;*\s*\?>/u", "; ?>", str_replace ('<?=', '<?php echo ', file_get_contents ($__o__p__))));
@@ -112,11 +119,11 @@ class Load {
     return $jsonLd ? '<script type="application/ld+json">' . json_encode ($jsonLd, DEV ? JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES : JSON_UNESCAPED_SLASHES) . '</script>' : '';
   }
   public function scope () {
-    return array_map (function ($scope) {
+    return implode (DEV ? "\n" : '', array_map (function ($scope) {
       return '<div class="_s" itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a itemprop="url" href="' . $scope['href'] . '"><span itemprop="title">' . $scope['title'] . '</span></a></div>';
     }, array_filter (func_get_args (), function ($scope) {
       return isset ($scope['href']) && isset ($scope['title']) && $scope['href'] && $scope['title'];
-    }));
+    })));
   }
   public function frame ($parma = array ()) {
     return HTMLMin::minify ($this->_view (VIEW_PATH_FRAME, $parma));
@@ -124,6 +131,7 @@ class Load {
   public function __call ($name, $arguments) {
     if (!(file_exists (VIEWS_PATH . $name . PHP) && is_readable (VIEWS_PATH . $name . PHP)))
       return null;
-    return $this->_view (VIEWS_PATH . $name . PHP, $arguments);
+
+    return $this->_view (VIEWS_PATH . $name . PHP, isset ($arguments[0]) ? $arguments[0] : array ());
   }
 }

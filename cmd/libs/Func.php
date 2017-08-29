@@ -55,6 +55,11 @@ if (!function_exists ('myWriteFile')) {
     fwrite ($fp, $d);
     flock ($fp, LOCK_UN);
     fclose ($fp);
+
+
+    $o = umask (0);
+    @chmod ($p, 0777);
+    umask ($o);
     return true;
   }
 }
@@ -84,12 +89,26 @@ if (!function_exists ('params')) {
   }
 }
 
-
-
-
 // ==================
 
-// ==================
+if (!function_exists ('strCat')) {
+  function strCat ($str, $len, $space = true, $removeHtmlTag = true) {
+    return mb_strimwidth ($removeHtmlTag ? removeHtmlTag ($str, $space) : $str, 0, $len, '…','UTF-8');
+  }
+}
+
+if (!function_exists ('avatarUrl')) {
+  function avatarUrl ($uid, $w = 100, $h = 100) {
+    $size = array ();
+    array_push ($size, isset ($w) && $w ? 'width=' . $w : ''); array_push ($size, isset ($h) && $h ? 'height=' . $h : '');
+    return 'https://graph.facebook.com/' . $uid . '/picture' . (($size = implode ('&', array_filter ($size))) ? '?' . $size : '');
+  }
+}
+if (!function_exists ('datetime2Format')) {
+  function datetime2Format ($d, $k = 'c') {
+    return date ($k, strtotime ($d));
+  }
+}
 
 if (!function_exists ('mkdir777')) {
   function mkdir777 ($path) {
@@ -119,7 +138,6 @@ if (!function_exists ('deleteDir')) {
   }
 }
 
-
 if (!function_exists ('typeOfImg')) {
   function typeOfImg ($t) {
     return 'image/' . (($t = pathinfo (MAIN_OG_URL)) && isset ($t['extension']) && $t['extension'] ? $t['extension'] : 'jpg');
@@ -136,34 +154,20 @@ if (!function_exists ('urlFormat')) {
     return preg_replace ('/[\/%]/u', ' ', $str);
   }
 }
-if (!function_exists ('urlFormatArticle')) {
-  function urlFormatArticle ($id, $title) {
+
+if (!function_exists ('pageUrlFormat')) {
+  function pageUrlFormat ($id, $title) {
     return urlFormat ($id . '-' . $title . HTML);
   }
 }
-if (!function_exists ('urlFormatWork')) {
-  function urlFormatWork ($id, $title) {
-    return urlFormat ($id . '-' . $title . HTML);
-  }
-}
-if (!function_exists ('urlArticle')) {
-  function urlArticle ($id, $title) {
-    return URL_ARTICLE . rawurlencode (urlFormatArticle ($id, $title));
+if (!function_exists ('pageUrl')) {
+  function pageUrl ($url, $id, $title) {
+    return $url . rawurlencode (pageUrlFormat ($id, $title));
   }
 }
 if (!function_exists ('pathArticle')) {
-  function pathArticle ($id, $title) {
-    return PATH_ARTICLE . urlFormatArticle ($id, $title);
-  }
-}
-if (!function_exists ('urlWrok')) {
-  function urlWrok ($id, $title) {
-    return URL_WORK . rawurlencode (urlFormatWork ($id, $title));
-  }
-}
-if (!function_exists ('pathWrok')) {
-  function pathWrok ($id, $title) {
-    return PATH_WORK . urlFormatWork ($id, $title);
+  function pagePath ($path, $id, $title) {
+    return $path . pageUrlFormat ($id, $title);
   }
 }
 

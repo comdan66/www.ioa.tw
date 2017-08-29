@@ -6,15 +6,6 @@
   @include font-smoothing(antialiased);
 }
 
-.icon-b:before {
-  content: "\e902";
-}
-.icon-a:before {
-  content: "\e910";
-}
-.icon-st:before {
-  content: "\e9d9";
-}
 .icon-l:before {
   content: "\e314";
 }
@@ -33,6 +24,9 @@
 .icon-h:before {
   content: "\e901";
 }
+.icon-b:before {
+  content: "\e902";
+}
 .icon-x:before {
   content: "\e907";
 }
@@ -50,6 +44,9 @@
 }
 .icon-i:before {
   content: "\e90f";
+}
+.icon-a:before {
+  content: "\e910";
 }
 .icon-v:before {
   content: "\e912";
@@ -74,4 +71,19 @@
 }
 .icon-y:before {
   content: "\e9ce";
+}
+.icon-st:before {
+  content: "\e9d9";
+}
+.icon-fl:before {
+  content: "\e9cc";
+}
+.icon-o:before {
+  content: "\ea91";
+}
+.icon-e:before {
+  content: "\ea9d";
+}
+.icon-gi:before {
+  content: "\eab0";
 }

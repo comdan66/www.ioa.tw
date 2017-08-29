@@ -1,26 +1,24 @@
 <header id="header">
   <div>
-    <label class="icon-m" for="menu_ckb"></label>
+<?php if (isset ($back_url) && $back_url) { ?>
+        <a class="icon-l2" href="<?php echo $back_url;?>"></a>
+<?php } else { ?>
+        <label class="icon-m" for="menu_ckb"></label>
+<?php } ?>
 
-    <div>
+    <a href='<?php echo PAGE_URL_INDEX;?>'>
       <b>OA's</b>
       <span>生活部落格</span>
       <i>Blog、Album</i>
-    </div>
-    <!-- <h1>實作練習實</h1> -->
-    <form method="get">
-      <input type="text" name='q' placeholder="搜尋 OA Wu..">
+    </a>
+
+    <form method="get" action="<?php echo PAGE_URL_SEARCH;?>">
+      <input type="text" id="q" name="q" placeholder="搜尋 OA Wu.." value="<?php echo isset ($val) && $val ? $val : '';?>" pattern='.{1,}' required title='搜尋 OA Wu 的相關資訊!' />
       <button type="submit" class="icon-s"></button>
     </form>
 
     <label for="info_ckb" class="_ic">
-      <img src="https://scontent-tpe1-1.xx.fbcdn.net/v/t31.0-8/17990637_1653567251323277_395906471356737911_o.jpg?oh=9e1c2bbda106944b5c788a4b4310fcae&oe=5A33D301" />
+      <img src="<?php echo avatarUrl (OA_FB_UID);?>" />
     </label>
   </div>
-
-  <span class="n3">
-    <a href="" class="a">分頁 1</a>
-    <a href="">分頁 2</a>
-    <a href="">分頁 3</a>
-  </span>
 </header>

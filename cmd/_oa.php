@@ -16,6 +16,15 @@ $_dirs = array (
   'css'  => [['css'], true, false],
   'font' => [['eot', 'svg', 'ttf', 'woff'], true, false],
   'img'  => [['png', 'jpg', 'jpeg', 'gif', 'svg'], true, false],
+  'asset' => [['js', 'css'], true, false],
+  'sitemap' => [['xml'], true, false],
+
+  'albums' => [['html'], true, false],
+  'album' => [['html'], true, false],
+  'devs' => [['html'], true, false],
+  'blogs' => [['html'], true, false],
+  'unboxings' => [['html'], true, false],
+  'article' => [['html'], true, false],
 );
 
 include_once 'libs' . DIRECTORY_SEPARATOR . 'OAS3Tool' . PHP;

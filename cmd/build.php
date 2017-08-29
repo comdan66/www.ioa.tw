@@ -35,19 +35,25 @@ include_once PATH_CMD_LIBS . 'Sitemap' . PHP;
 $build = new Build ();
 
 $build->clean ('清除上次的紀錄');
-$build->init ('初始化目錄');
-$build->indexHtml ('產生 Index 檔案');
-// $build->aboutHtml ('產生 About 檔案');
-// $build->contactHtml ('產生 Contact 檔案');
-// $build->articlesHtml ('產生 Article 檔案');
-// $build->worksHtml ('產生 Work 檔案');
+// $build->init ('初始化目錄');
+// $build->getApi ('取得 API');
+// $build->indexHtml ('產生 Index 檔案');
+// $build->licenseHtml ('產生 License 檔案');
+// $build->searchHtml ('產生 Search 檔案');
+// $build->timelineHtml ('產生 Timeline 檔案');
+
+// $build->listHtml ('開發心得', URL_DEVS,      PATH_DEVS,      'devs',      '這裡有著 ' . OA_NAME . ' 的程式開發心得，其中包含了從大學開始學習的 C 語言、Java、大三學習的 php、MySQL、專題 Arduino 比賽心得，也有出社會後因為工作關係在前、後端領域甚至是 iOS App 的開發心得紀錄！');
+// $build->listHtml ('生活紀錄', URL_BLOGS,     PATH_BLOGS,     'blogs',     '自己的部落格系統自己寫，雖然 Coding 很熱血，但其實年紀越大，越會發現生活不只寫程式這件事而已，到處都有你我直得發現的美，讓我們一起來記錄吧。');
+// $build->listHtml ('開箱文章', URL_UNBOXINGS, PATH_UNBOXINGS, 'unboxings', '開箱！開箱！開箱！新玩具、新遊戲、新夥伴！一起來開箱聞一聞吧！');
+// $build->listHtml ('個人相簿', URL_ALBUMS,    PATH_ALBUMS,    'albums');
+
 // $build->sitemap ('產生 Sitemap 檔案');
 
-// if (DEV) {
-//   header ('Content-Type: application/json', 'true');
-//   echo json_encode (array ('status' => true, 'message' => 'Build 成功！'));
-//   exit();
-// }
+if (DEV) {
+  header ('Content-Type: application/json', 'true');
+  echo json_encode (array ('status' => true, 'message' => 'Build 成功！'));
+  exit();
+}
 
 // $option = array (
 //     'bucket' => $bucket,
