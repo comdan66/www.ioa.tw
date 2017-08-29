@@ -16,3 +16,5 @@ cmd/npm-debug.log
 /asset/*
 /api
 /*.html
+/js/search.js
+/js/time.js
