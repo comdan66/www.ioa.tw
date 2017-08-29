@@ -1383,7 +1383,7 @@ a {
   
   @include clearfix();
 
-  a {
+  > a {
     position: relative;
     float: left;
     margin: 0;
@@ -1485,6 +1485,9 @@ a {
         color: rgba(100, 100, 100, 1.00);
       }
     }
+  }
+  .g {
+    float: left;
   }
 }
 
@@ -2419,7 +2422,7 @@ a {
   }
   #a {
     padding: 8px !important;
-    a {
+    > a {
       $v: 2;
       height: 220px;
       width: calc(100% / #{$v} - (8px * #{$v - 1}) / #{$v});
@@ -2450,7 +2453,7 @@ a {
   }
 }
 @include range-width($mobiletWidth, 650px) {
-  #a a {
+  #a > a {
     $v: 2;
     height: 220px;
     width: calc(100% / #{$v} - (16px * #{$v - 1}) / #{$v});
@@ -2484,7 +2487,7 @@ a {
   }
 }
 @include range-width(650px, $tabletWidth) {
-  #a a {
+  #a > a {
     $v: 3;
     height: 220px;
     width: calc(100% / #{$v} - (16px * #{$v - 1}) / #{$v});
@@ -2755,7 +2758,7 @@ a {
           display: none;
         }
       }
-      ~ #main #a a {
+      ~ #main #a > a {
         $v: 2;
         height: 220px;
         width: calc(100% / #{$v} - (16px * #{$v - 1}) / #{$v});
@@ -2774,7 +2777,7 @@ a {
           margin-right: 16px;
         }
       }
-      ~ #main #a a {
+      ~ #main #a > a {
         $v: 3;
         height: 220px;
         width: calc(100% / #{$v} - (16px * #{$v - 1}) / #{$v});
@@ -2796,7 +2799,7 @@ a {
   
   #menu_ckb {
     &:not(:checked) {
-      ~ #main #a a {
+      ~ #main #a > a {
         $v: 3;
         height: 220px;
         width: calc(100% / #{$v} - (16px * #{$v - 1}) / #{$v});
@@ -2805,7 +2808,7 @@ a {
       }
     }
     &:checked {
-      ~ #main #a a {
+      ~ #main #a > a {
         $v: 4;
         height: 220px;
         width: calc(100% / #{$v} - (16px * #{$v - 1}) / #{$v});

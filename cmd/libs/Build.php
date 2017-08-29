@@ -166,7 +166,7 @@ class Build {
     }, $this->apis['stars']), array_map (function ($t) {
       return array ('n' => $t['icon']['c300x300'], 'i' => 'icon-g', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array ());
     }, $this->apis['unboxings']), array_map (function ($t) {
-      return array ('i' => 'icon-i', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array_map (function ($u) {
+      return array ('n' => '', 'i' => 'icon-i', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array_map (function ($u) {
         return array (
           'i' => $u['id'],
           't' => $u['title'],
@@ -230,7 +230,7 @@ class Build {
     array_push ($this->sitemapInfos, array ('uri' => '/' . str_replace (URL, '', PAGE_URL_LICENSE), 'priority' => '0.7', 'changefreq' => 'daily', 'lastmod' => date ('c')));
   }
   public function listHtml ($ptitle, $url, $path, $apiKey, $desc = MAIN_DESCRIPTION) {
-    $limit = 10;
+    $limit = $apiKey !== 'albums' ? 10 : 12;
     $title = '產生 ' . $ptitle . ' 檔案';
     $back_urls = array ();
 
@@ -276,7 +276,7 @@ class Build {
             'menu'   => $load->_menu (array ('now' => $apiKey)),
             'main'   => $load->$methods (array (
               'objs' => $as,
-              'pagination' => Pagination::initialize (array ('offset' => $offset, 'base_url' => URL_DEVS, 'total_rows' => $total, 'per_page' => $limit))->create_links ())),
+              'pagination' => Pagination::initialize (array ('offset' => $offset, 'base_url' => $url, 'total_rows' => $total, 'per_page' => $limit))->create_links ())),
           )))) return $this->error ($title . '失敗！');
 
         array_push ($this->sitemapInfos, array ('uri' => '/' . str_replace (URL, '', $url . $html), 'priority' => '0.3', 'changefreq' => 'daily', 'lastmod' => date ('c')));

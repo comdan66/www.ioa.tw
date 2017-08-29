@@ -10,5 +10,6 @@
           <span>共有 <?php echo number_format (count ($obj['images']));?> 張照片</span>
         </a>
 <?php }?>
+    <div class="g"><?php echo $pagination;?></div>
   </div>
 </main>
