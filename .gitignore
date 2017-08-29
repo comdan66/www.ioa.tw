@@ -5,3 +5,13 @@ cmd/.sass-cache/*
 
 cmd/node_modules/*
 cmd/npm-debug.log
+
+/sitemap/*
+/devs/*
+/blogs/*
+/unboxings/*
+/article/*
+/albums/*
+/album/*
+/asset/*
+/api
