@@ -740,6 +740,7 @@ a {
   > .s {
     font-size: 15px;
     line-height: 22px;
+    word-wrap: break-word;
     > * {
       + * {
         margin-top: 14px;
@@ -752,12 +753,18 @@ a {
       max-width: 100%;
       height: auto !important;
     }
-    
+    a {
+      font-size: 15px;
+    }
     ul, ol {
       padding-left: 24px;
       li {
         line-height: 18px;
         font-size: 14px;
+        span {
+          display: inline;
+          width: auto;
+        }
 
         + li {
           margin-top: 4px;

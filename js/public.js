@@ -116,6 +116,8 @@ console.error (orm, id);
   }).each (function (i) { $(this).parent ().remove (); });
 
   $section.each (function (_t,_i) {
+    $(this).find ('a').attr ('target', '_blank');
+
     var $el = $(this).find ('> *'), figures = [];
     for (var i = 0; i < $el.length; i++) if ($el.eq (i).is ('figure')) figures.push ($el.eq (i).clone (true)); else if (figures.length) oasort (figures.length).forEach (function (c) { $('<div />').addClass ('ps').addClass ('n' + c).append (figures.splice (0, c)).insertBefore ($el.eq (i)); });
 
