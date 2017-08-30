@@ -627,7 +627,9 @@ a {
 .o {
   position: relative;
   background-color: rgba(255, 255, 255, 1);
-  @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
+
+  @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
+  // @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
 }
 .p {
   @extend .o;
@@ -641,13 +643,15 @@ a {
   margin: 0;
   margin-top: -16px;
   overflow: hidden;
-  @include box-shadow(0 0 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
-  
+  // @include box-shadow(0 0 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
+  @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
+
   &.tl {
     @include border-bottom-radius(3px);
   }
   +.p {
-    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2), 0 0 1px #e0e0e0);
+    // @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2), 0 0 1px #e0e0e0);
+    @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
   }
   &:after {
     content: '';
@@ -963,7 +967,8 @@ a {
         overflow: hidden;
         @include border-radius(2px);
         @include transition(box-shadow .3s);
-        @include box-shadow(0 0 1px rgba(0,0,0,.15), 0 1px 3px rgba(0,0,0,.24), 0 -1px 1px rgba(0,0,0,0.1));
+        // @include box-shadow(0 0 1px rgba(0,0,0,.15), 0 1px 3px rgba(0,0,0,.24), 0 -1px 1px rgba(0,0,0,0.1));
+        @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
 
         i, figure {
           position: relative;
@@ -1037,7 +1042,8 @@ a {
           color: rgba(65, 65, 65, .750);
         }
         &:hover {
-          @include box-shadow(0 0 1px rgba(0,0,0,.2), 0 1px 4px rgba(0,0,0,.3), 0 -1px 1px rgba(0,0,0,0.15));
+          // @include box-shadow(0 0 1px rgba(0,0,0,.2), 0 1px 4px rgba(0,0,0,.3), 0 -1px 1px rgba(0,0,0,0.15));
+          @include box-shadow(0 -1px 0 #e0e0e0, 0 0 4px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.1));
           b {
             color: rgba(65, 65, 65, 1);
           }
@@ -1279,7 +1285,8 @@ a {
     text-align: center;
     background-color: white;
     @include border-radius(2px);
-    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
+    @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
+    // @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
   }
   &:empty {
     display: none;
@@ -1299,7 +1306,8 @@ a {
       background-color: white;
 
       @include border-radius(2px);
-      @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
+      @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
+      // @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
     }
 
     > li {
@@ -1834,7 +1842,8 @@ a {
       i {
         top: (36px - 20px) / 2;
         z-index: -2;
-        @include box-shadow(0 0 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
+        // @include box-shadow(0 0 1px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.2), 0 -1px 1px #e0e0e0);
+        @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
       }
       time {
         background-color: transparent;
