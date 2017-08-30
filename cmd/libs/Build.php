@@ -38,7 +38,9 @@ class Build {
   public function getApi ($title) {
     $this->apis['home'] = (($this->apis['home'] = myReadFile (PATH_APIS . 'home.json')) ? json_decode ($this->apis['home'], true) : null);
     $this->apis['license'] = (($this->apis['license'] = myReadFile (PATH_APIS . 'license.json')) ? json_decode ($this->apis['license'], true) : null);
-    
+    echo '<meta http-equiv="Content-type" content="text/html; charset=utf-8" /><pre>';
+    var_dump ($this->apis['home']);
+    exit ();
     $this->apis['devs'] = array_map (function ($obj) {
       $obj['_url'] = pageUrl (URL_ARTICLE, $obj['id'], $obj['title']);
       $obj['_path'] = pagePath (PATH_ARTICLE, $obj['id'], $obj['title']);
