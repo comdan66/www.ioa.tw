@@ -104,7 +104,7 @@ console.error (orm, id);
 
   $('._ic').OAIL ({verticalAlign: 'center'});
   $('time[datetime]').timeago ();
-  
+
 
   var $section = $('.ar > .s');
   $section.find ('p > img').map (function (i) {
@@ -117,6 +117,11 @@ console.error (orm, id);
 
     return $(this);
   }).each (function (i) { $(this).parent ().remove (); });
+  
+  $section.find ('p > iframe').each (function (i) {
+    var $parent = $(this).parent (), text = $parent.text (), $iframe = $(this).clone (true);
+    $parent.empty ().append ($iframe).append ($('<span />').text (text));
+  });
 
   $section.each (function (_t,_i) {
   //   $(this).find ('a').attr ('target', '_blank');
