@@ -2,7 +2,7 @@
   <div id="a">
 <?php foreach ($objs as $obj) { ?>
         <a href="<?php echo $obj['_url'];?>">
-          <figure class='_ic' data-cnt='<?php echo number_format ($obj['pv']);?>'>
+          <figure class="_ic" data-cnt="<?php echo number_format ($obj['pv']);?>">
             <img alt="<?php echo $obj['title'];?> - <?php echo MAIN_TITLE;?>" src="<?php echo $obj['cover']['c630x315'];?>" />
             <figcaption><?php echo $obj['title'];?></figcaption>
           </figure>

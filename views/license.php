@@ -2,9 +2,9 @@
   <div>
     
     <article class="p p580 ar">
-      <header style='margin-bottom: 8px;'>
+      <header style="margin-bottom: 8px;">
         <h1><?php echo $license['title'];?></h1>
-        <span style='font-size: 11px;color: rgba(145, 145, 145, 1);'><?php echo $license['bio'];?></span>
+        <span style="font-size: 11px;color: rgba(145, 145, 145, 1);"><?php echo $license['bio'];?></span>
       </header>
 
       <section class="s"><?php echo $license['content'];?></section>

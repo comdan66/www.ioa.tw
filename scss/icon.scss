@@ -6,6 +6,9 @@
   @include font-smoothing(antialiased);
 }
 
+.icon-tu:before {
+  content: "\e903";
+}
 .icon-l:before {
   content: "\e314";
 }
@@ -69,14 +72,14 @@
 .icon-g:before {
   content: "\e99f";
 }
+.icon-fl:before {
+  content: "\e9cc";
+}
 .icon-y:before {
   content: "\e9ce";
 }
 .icon-st:before {
   content: "\e9d9";
-}
-.icon-fl:before {
-  content: "\e9cc";
 }
 .icon-o:before {
   content: "\ea91";
