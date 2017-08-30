@@ -55,16 +55,16 @@ if (DEV) {
   exit();
 }
 
-// $option = array (
-//     'bucket' => $bucket,
-//     'access' => $access,
-//     'secret' => $secret,
-//     'protocol' => $potoco,
-//     'usname' => false,
-//     'minify' => !DEV,
-//   );
+$option = array (
+    'bucket' => $bucket,
+    'access' => $access,
+    'secret' => $secret,
+    'protocol' => $potoco,
+    'usname' => false,
+    'minify' => !DEV,
+  );
 
-// include_once '_oa' . PHP;
+include_once '_oa' . PHP;
 
 if (!CLI) {
   header ('Content-Type: application/json', 'true');
