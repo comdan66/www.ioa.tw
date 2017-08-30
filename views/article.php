@@ -32,11 +32,11 @@
             <ul class='ss'>
         <?php foreach ($item['sources'] as $source) {
                 if ($source['title'] && $source['href']) { ?>
-                  <li><a href="<?php echo $source['href'];?>"><?php echo $source['title'];?></a><a href="<?php echo $source['href'];?>"><?php echo $source['href'];?></a></li>
+                  <li><a href="<?php echo $source['href'];?>" target="_blank"><?php echo $source['title'];?></a><a href="<?php echo $source['href'];?>" target="_blank"><?php echo $source['href'];?></a></li>
           <?php } else if ($source['title']) { ?>
                   <li><?php echo $source['title'];?></li>
           <?php } else if ($source['href']) { ?>
-                  <li><a href="<?php echo $source['href'];?>"><?php echo $source['href'];?></a><a href="<?php echo $source['href'];?>"><?php echo $source['href'];?></a></li>
+                  <li><a href="<?php echo $source['href'];?>" target="_blank"><?php echo $source['href'];?></a><a href="<?php echo $source['href'];?>" target="_blank"><?php echo $source['href'];?></a></li>
           <?php }
               } ?>
             </ul>
