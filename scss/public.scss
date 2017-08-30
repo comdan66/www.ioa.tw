@@ -898,8 +898,6 @@ a {
       }
 
       > iframe {
-        height: 300px;
-
         + span {
           display: block;
           width: 100%;
@@ -2532,6 +2530,10 @@ a {
       margin: 0 -16px;
     }
   }
+
+  .s > p > iframe {
+    height: 200px;
+  }
 }
 @include range-width($mobiletWidth) {
   #info_ckb {
@@ -2588,7 +2590,7 @@ a {
     width: calc(100% + 16px * 2);
     margin-left: -16px;
   }
-  
+
   .s > p > iframe {
     width: calc(100% + 16px * 2);
     margin-left: -16px;
@@ -2690,6 +2692,9 @@ a {
       width: calc(100% + 20px * 2);
       margin: 0 -20px;
     }
+  }
+  .s > p > iframe {
+    height: 280px;
   }
 }
 @include range-width(0, $tabletWidth) {
@@ -2849,6 +2854,9 @@ a {
     ~ #main {
       padding-left: 0;
     }
+  }
+  .s > p > iframe {
+    height: 320px;
   }
 }
 @include range-width($tabletWidth, $mainWidth) {
