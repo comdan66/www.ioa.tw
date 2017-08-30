@@ -794,6 +794,8 @@ a {
   > header {
     h1, h2, h3 {
       color: rgba(64, 64, 64, 1);
+      word-break: normal;
+      word-wrap: break-word;
     }
     span, p {
       font-size: 14px;
@@ -1067,10 +1069,10 @@ a {
     overflow: visible !important;
 
     + figure {
-      margin-top: (16px + 24px);
+      margin-top: (16px + 28px);
     }
     &:last-child {
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     img {
@@ -1093,16 +1095,16 @@ a {
       position: absolute;
       left: 0;
       padding: 0;
-      height: 24px;
-      line-height: 24px;
+      height: 28px;
+      line-height: 28px;
       // color: white;
       // z-index: 3;
       font-size: 13px;
       text-align: left;
 
-      bottom: -24px;
+      bottom: -28px;
       // font-weight: bold;
-      color: rgba(100, 100, 100, 1);
+      color: rgba(85, 85, 85, 1);
       // @include opacity(0);
       @include overflow-docx3();
       cursor: default;
