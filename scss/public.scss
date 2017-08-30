@@ -897,8 +897,10 @@ a {
       li {
         line-height: 18px;
         font-size: 14px;
+        word-break: break-all;
+        
         span {
-          display: inline-block;
+          display: inline;
           width: auto;
         }
 
