@@ -29,7 +29,7 @@
         <article class="p p580 ar">
           <section class="s">
             <header>相關參考</header>
-            <ul>
+            <ul class='ss'>
         <?php foreach ($item['sources'] as $source) {
                 if ($source['title'] && $source['href']) { ?>
                   <li><a href="<?php echo $source['href'];?>"><?php echo $source['title'];?></a><a href="<?php echo $source['href'];?>"><?php echo $source['href'];?></a></li>
