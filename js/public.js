@@ -40,8 +40,8 @@ $(function () {
           h: $i.get (0).height,
           src: $i.attr ('src'),
           href: $(this).attr ('href'),
-          title: $img.attr ('alt').length ? $img.attr ('alt') : $figcaption.html (),
-          content: $img.attr ('alt').length ? $figcaption.html () : '',
+          title: $img.attr ('alt') && $img.attr ('alt').length ? $img.attr ('alt') : $figcaption.html (),
+          content: $img.attr ('alt') && $img.attr ('alt').length ? $figcaption.html () : '',
           el: $(this).get (0)
         };
       }).toArray ();
