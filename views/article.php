@@ -6,9 +6,15 @@
 
     <article class="p p580 ar">
       <header>
-        <?php echo $item['tag']['title'] ? '<a href="' . (PAGE_URL_SEARCH . '?q=tag:' . $item['tag']['title']) . '"' . ($item['tag']['color'] ? ' style="background-color: ' . $item['tag']['color'] . ';"' : '') . '>' . $item['tag']['title'] . '</a>' : '';?>
-        <h1<?php echo $item['tag']['title'] ? ' data-tip="' . $item['tag']['title'] . '"' : '';?>><?php echo $item['title'];?></h1>
-        <span><?php echo $item['bio'];?></span>
+        <h1><?php echo $item['title'];?></h1>
+        <span>
+          <?php echo $item['tag']['title'] ? '<a href="' . (PAGE_URL_SEARCH . '?q=tag:' . $item['tag']['title']) . '"' . ($item['tag']['key'] ? ' class="c' . $item['tag']['key'] . '"' : '') . '>' . $item['tag']['title'] . '</a>' : '';?>
+    <?php foreach ($item['tags'] as $tag) {
+            if (!($item['tag']['title'] && $tag['name'] == $item['tag']['title'])) { ?>
+              <a href="<?php echo PAGE_URL_SEARCH;?>?q=tags:<?php echo rawurlencode (urlFormat ($tag['name']));?>"><?php echo $tag['name'];?></a>
+      <?php }
+          } ?>
+        </span>
       </header>
 
       <div>
@@ -17,13 +23,6 @@
       </div>
 
       <section class="s"><?php echo $item['content'];?></section>
-<?php if ($item['tags']) { ?>
-        <span>
-    <?php foreach ($item['tags'] as $tag) { ?>
-            <a href="<?php echo PAGE_URL_SEARCH;?>?q=tags:<?php echo rawurlencode (urlFormat ($tag['name']));?>"><?php echo $tag['name'];?></a>
-    <?php }?>
-        </span>
-<?php } ?>
     </article>
 
 <?php if ($item['sources']) { ?>

@@ -9,8 +9,7 @@
             <figcaption><?php echo $obj['title'];?><figcaption>
           </figure>
           
-          <?php echo $obj['tag']['title'] ? '<i' . ($obj['tag']['color'] ? ' style="background-color: ' . $obj['tag']['color'] . ';"' : '') . '>' . $obj['tag']['title'] . '</i>' : '';?>
-          <b><?php echo $obj['title'];?></b>
+          <b<?php echo $obj['tag']['title'] ? ' data-tip="' . $obj['tag']['title'] . '"' : '';?><?php echo $obj['tag']['key'] ? ' class="c' . $obj['tag']['key'] . '"' : '';?>><?php echo $obj['title'];?></b>
           <span><?php echo strCat ($obj['content'], 100);?></span>
         </a>
 <?php }?>
