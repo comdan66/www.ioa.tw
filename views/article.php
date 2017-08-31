@@ -6,7 +6,8 @@
 
     <article class="p p580 ar">
       <header>
-        <h1<?php echo $obj['tag'] ? ' data-tip="' . $obj['tag'] . '"' : '';?>><?php echo $item['title'];?></h1>
+        <?php echo $item['tag']['title'] ? '<a href="' . (PAGE_URL_SEARCH . '?q=tag:' . $item['tag']['title']) . '"' . ($item['tag']['color'] ? ' style="background-color: ' . $item['tag']['color'] . ';"' : '') . '>' . $item['tag']['title'] . '</a>' : '';?>
+        <h1<?php echo $item['tag']['title'] ? ' data-tip="' . $item['tag']['title'] . '"' : '';?>><?php echo $item['title'];?></h1>
         <span><?php echo $item['bio'];?></span>
       </header>
 
