@@ -8,7 +8,7 @@
             <img alt="<?php echo $obj['title'];?> - <?php echo MAIN_TITLE;?>" src="<?php echo $obj['icon']['c300x300'];?>" />
             <figcaption><?php echo $obj['title'];?><figcaption>
           </figure>
-          <b<?php echo $obj['case'] == 2 ? ' data-tip="接案"' : '';?>><?php echo $obj['title'];?></b>
+          <b<?php echo $obj['tag'] ? ' data-tip="' . $obj['tag'] . '"' : '';?>><?php echo $obj['title'];?></b>
           <span><?php echo strCat ($obj['content'], 100);?></span>
         </a>
 <?php }?>

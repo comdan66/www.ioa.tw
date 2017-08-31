@@ -6,7 +6,7 @@
 
     <article class="p p580 ar">
       <header>
-        <h1<?php echo $item['case'] == 2 ? ' data-tip="接案"' : '';?>><?php echo $item['title'];?></h1>
+        <h1<?php echo $obj['tag'] ? ' data-tip="' . $obj['tag'] . '"' : '';?>><?php echo $item['title'];?></h1>
         <span><?php echo $item['bio'];?></span>
       </header>
 
@@ -19,7 +19,7 @@
 <?php if ($item['tags']) { ?>
         <span>
     <?php foreach ($item['tags'] as $tag) { ?>
-            <a href="<?php echo PAGE_URL_SEARCH;?>?q=tag:<?php echo rawurlencode (urlFormat ($tag['name']));?>"><?php echo $tag['name'];?></a>
+            <a href="<?php echo PAGE_URL_SEARCH;?>?q=tags:<?php echo rawurlencode (urlFormat ($tag['name']));?>"><?php echo $tag['name'];?></a>
     <?php }?>
         </span>
 <?php } ?>
