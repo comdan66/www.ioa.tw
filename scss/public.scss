@@ -796,6 +796,26 @@ a {
       color: rgba(64, 64, 64, 1);
       word-break: normal;
       word-wrap: break-word;
+
+      &[data-tip]:not([data-tip='']) {
+        &:before {
+          content: attr(data-tip);
+          // font-weight: normal;
+          font-size: 10px;
+          display: inline-block;
+          height: 19px;
+          line-height: 19px - 2px;
+          margin-top: 5px;
+          padding: 0 8px;
+          margin-right: 4px;
+          background-color: rgba(49, 183, 164, 1.00);
+          color: rgba(255, 255, 255, 1);
+          border: 1px solid rgba(0, 0, 0, .10);
+          // @include text-shadow(0 1px 1px rgba(0, 0, 0, .3));
+          @include border-radius(19px / 4);
+          @include opacity(.75);
+        }
+      }
     }
     span, p {
       font-size: 14px;
@@ -1293,6 +1313,26 @@ a {
       height: 25px;
       line-height: 25px;
       color: rgba(65, 65, 65, .850);
+
+      &[data-tip]:not([data-tip='']) {
+        &:before {
+          content: attr(data-tip);
+          // font-weight: normal;
+          font-size: 10px;
+          display: inline-block;
+          height: 17px;
+          line-height: 17px - 2px;
+          margin-top: (25px - 17px) / 2;
+          padding: 0 8px;
+          margin-right: 4px;
+          background-color: rgba(49, 183, 164, 1.00);
+          color: rgba(255, 255, 255, 1);
+          border: 1px solid rgba(0, 0, 0, .10);
+          // @include text-shadow(0 1px 1px rgba(0, 0, 0, .3));
+          @include border-radius(17px / 4);
+          @include opacity(.75);
+        }
+      }
     }
     span {
       margin-top: -4px;

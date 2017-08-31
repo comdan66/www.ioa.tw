@@ -6,7 +6,7 @@
 
     <article class="p p580 ar">
       <header>
-        <h1><?php echo $item['title'];?></h1>
+        <h1<?php echo $item['case'] == 2 ? ' data-tip="接案"' : '';?>><?php echo $item['title'];?></h1>
         <span><?php echo $item['bio'];?></span>
       </header>
 

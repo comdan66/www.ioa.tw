@@ -159,20 +159,28 @@ class Build {
   public function timelineHtml ($title) {
     $objs = array_merge (array_map (function ($t) {
       return array ('n' => $t['icon']['c300x300'], 'i' => 'icon-t', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array ());
-    }, $this->apis['devs']), array_map (function ($t) {
+    }, array_filter ($this->apis['devs'], function ($t) {
+      return $t['timeline'] == 2;
+    })), array_map (function ($t) {
       return array ('n' => $t['icon']['c300x300'], 'i' => 'icon-b', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array ());
-    }, $this->apis['blogs']), array_map (function ($t) {
+    }, array_filter ($this->apis['blogs'], function ($t) {
+      return $t['timeline'] == 2;
+    })), array_map (function ($t) {
       return array ('n' => '', 'i' => 'icon-st', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => removeHtmlTag ($t['content']), 'u' => '', 's' => array ());
     }, $this->apis['stars']), array_map (function ($t) {
       return array ('n' => $t['icon']['c300x300'], 'i' => 'icon-g', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array ());
-    }, $this->apis['unboxings']), array_map (function ($t) {
+    }, array_filter ($this->apis['unboxings'], function ($t) {
+      return $t['timeline'] == 2;
+    })), array_map (function ($t) {
       return array ('n' => '', 'i' => 'icon-i', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array_map (function ($u) {
         return array (
           'i' => $u['id'],
           't' => $u['title'],
           'm' => $u['name']['w800']);
       }, $t['images']));
-    }, $this->apis['albums']));
+    }, array_filter ($this->apis['albums'], function ($t) {
+      return $t['timeline'] == 2;
+    })));
 
     if (!myWriteFile (JS_PATH_TIMELINE, "/**\n * @author      OA Wu <comdan66@gmail.com>\n * @copyright   Copyright (c) 2017 OA Wu Design\n * @license     http://creativecommons.org/licenses/by-nc/2.0/tw/\n */\n\n$(function () {\n  var objs = " . json_encode ($objs) . ";\n  var \$_l = $('#l'), \$_lb = $('#l + button');\n\n  function initObjElement (obj) {\n    return $('<section />').addClass ('s').append (\n      $('<div />').addClass ('o').addClass (!obj.s.length && obj.n.length ? 'v' : '').append (\n        $('<time />').attr ('data-time', obj.m).text ($.timeago (obj.m))).append (\n        $('<i />').addClass (obj.i)).append (\n        $('<h3 />').text (obj.t)).append (\n        $('<p />').text (obj.c).prepend (!obj.s.length && obj.n.length ? $('<figure />').addClass ('ic').append ($('<img />').attr ('src', obj.n)) : null)).append (\n        obj.s.length ? $('<div />').addClass ('n' + obj.s.length).append (obj.s.map (function (t, i) {\n          return (obj.s.length == i + 1 ? $('<a />').attr ('href', obj.u).attr ('target', '_blank') : $('<figure />')).attr ('data-pvid', 'ArticleImage-' + t.i).addClass ('ic').append (\n            $('<img />').attr ('src', t.m).attr ('alt', t.t.length ? '" . str_replace ("'", "\'", MAIN_TITLE) . "' : t.t)).append (\n            $('<figcaption />').text (t.t.length ? t.t : obj.t));\n        })) : null).append (\n        obj.u.length ? $('<span />').append ($('<a />').attr ('href', obj.u).attr ('target', '_blank').text ('詳細內容')) : null));\n  }\n  function initObjFeature (\$obj) {\n    \$obj.find ('.ic').OAIL ({verticalAlign: 'center'});\n    setTimeout (function () { \$obj.addClass ('ani'); }, 300);\n    window.OAIPS.set (\$obj, 'figure');\n    return \$obj;\n  }\n  function loadObjs () {\n    if (!objs.length) return;\n\n    \$_lb.get (0).c++;\n\n    objs.sort (function (a,b) {\n      a = new Date (a.m);\n      b = new Date (b.m);\n      return a > b ? -1 : a < b ? 1 : 0;\n    }); \n    objs.splice (0, 3).forEach (function (t) {\n      initObjFeature ($(initObjElement (t)).appendTo (\$_l));\n    });\n\n    if (!objs.length) \$_lb.remove ();\n\n    clearTimeout (\$_lb.get (0).st);\n    \$_lb.get (0).st = null;\n  }\n\n  if (\$_lb.length) {\n    \$_lb.get (0).c = 0;\n    \$_lb.click (loadObjs);\n    $(window).scroll (function () {\n      if (\$_lb.get (0).c >= 3) return;\n      if (\$_lb.get (0).st) return;\n      if (!($(window).height () + $(window).scrollTop () > \$_lb.offset ().top - 80)) return;\n\n      \$_lb.get (0).st = setTimeout (loadObjs, 500);\n    }).scroll ();\n  }\n});"))
       return $this->error ($title . '失敗！');
