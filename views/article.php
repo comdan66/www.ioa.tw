@@ -51,7 +51,7 @@
         <?php foreach ($others as $other) { ?>
                 <a href="<?php echo $other['_url'];?>">
                   <figure class="_ic">
-                    <img alt="<?php echo $other['title'];?> - <?php echo MAIN_TITLE;?>" src="<?php echo $other['cover']['c630x315'];?>" />
+                    <img alt="<?php echo $other['title'];?> - <?php echo MAIN_TITLE;?>" src="<?php echo $other['icon']['c300x300'];?>" />
                     <figcaption><?php echo $other['title'];?><figcaption>
                   </figure>
                   <b><?php echo $other['title'];?></b>
