@@ -69,10 +69,10 @@ try {
   $tool->url ();
 
 
-  if (!CLI) {
-    header ('Content-Type: application/json', 'true');
-    echo json_encode (array ('status' => true, 'message' => nl2br(str_replace(' ', '&nbsp;', $tool->getLog ()->get ()))));
-  }
+  // if (!CLI) {
+  //   header ('Content-Type: application/json', 'true');
+  //   echo json_encode (array ('status' => true, 'message' => nl2br(str_replace(' ', '&nbsp;', $tool->getLog ()->get ()))));
+  // }
 } catch (Exception $e) {
   if (CLI) {
     echo $e->getMessage ();
