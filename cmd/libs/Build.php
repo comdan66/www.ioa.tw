@@ -177,7 +177,7 @@ class Build {
           'i' => $u['id'],
           't' => $u['title'],
           'm' => $u['name']['w800']);
-      }, $t['images']));
+      }, array_slice ($t['images'], 0, 3)));
     }, array_filter ($this->apis['albums'], function ($t) {
       return $t['timeline'] == 2;
     })));
