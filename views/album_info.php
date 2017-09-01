@@ -9,7 +9,7 @@
   </header>
 
   <div>
-    <time><?php echo datetime2Format ($item['date_at'], "Y.m.d");?></time>
+    <time data-time='<?php echo datetime2Format ($item['date_at'], 'Y.m.d');?>' datetime='<?php echo $item['date_at'];?>'><?php echo datetime2Format ($item['date_at'], 'Y-m-d');?></time>
     <span><div class="fb-like" data-href="<?php echo $item['_url'];?>" data-send="false" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div></span>
   </div>
 
