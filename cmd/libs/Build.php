@@ -333,7 +333,7 @@ class Build {
       if (!myWriteFile ($item['_path'], $load->frame (array (
         'title'  => $load->title ($item['title']),
         'meta'   => $load->meta (
-          array ('_k' => 'nk',    'name' => 'keywords',                   'content' => implode (', ', columnArray ($item['tags'], 'name')) . ', ' . MAIN_KEYWORDS),
+          array ('_k' => 'nk',    'name' => 'keywords',                   'content' => implode (', ', $tags) . ', ' . MAIN_KEYWORDS),
           array ('_k' => 'nd',    'name' => 'description',                'content' => strCat ($d = $item['content'], 150)),
           array ('_k' => 'pou',   'property' => 'og:url',                 'content' => $item['_url']),
           array ('_k' => 'poi',   'property' => 'og:title',               'content' => $item['title'] . ' - ' . MAIN_TITLE),
