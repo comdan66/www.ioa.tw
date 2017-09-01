@@ -28,7 +28,7 @@ class Load {
       array ('_k' => 'nt',    'name' => 'theme-color',                            'content' => '#3db990'),
       array ('_k' => 'pou',   'property' => 'og:url',                             'content' => PAGE_URL_INDEX),
       array ('_k' => 'poi',   'property' => 'og:title',                           'content' => MAIN_TITLE),
-      array ('_k' => 'pod',   'property' => 'og:description',                     'content' => strCat (MAIN_DESCRIPTION, 300, false)),
+      array ('_k' => 'pod',   'property' => 'og:description',                     'content' => strCat (MAIN_DESCRIPTION, 200, false)),
       array ('_k' => 'pos',   'property' => 'og:site_name',                       'content' => MAIN_TITLE),
       array ('_k' => 'pfm',   'property' => 'fb:admins',                          'content' => FB_ADMIN_ID),
       array ('_k' => 'pda',   'property' => 'fb:app_id',                          'content' => FB_APP_ID),

@@ -132,7 +132,7 @@ class Build {
         array ('_k' => 'nd',    'name' => 'description',                'content' => strCat ($d, 150)),
         array ('_k' => 'pou',   'property' => 'og:url',                 'content' => PAGE_URL_SEARCH),
         array ('_k' => 'poi',   'property' => 'og:title',               'content' => $ptitle . ' - ' . MAIN_TITLE),
-        array ('_k' => 'pod',   'property' => 'og:description',         'content' => strCat ($d, 300, false))),
+        array ('_k' => 'pod',   'property' => 'og:description',         'content' => strCat ($d, 200, false))),
       'jsonLd' => $load->jsonLd (array (
         '@context' => 'http://schema.org',
         '@type' => 'WebSite',
@@ -196,7 +196,7 @@ class Build {
         array ('_k' => 'nd',    'name' => 'description',                'content' => strCat ($d, 150)),
         array ('_k' => 'pou',   'property' => 'og:url',                 'content' => PAGE_URL_TIMELINE),
         array ('_k' => 'poi',   'property' => 'og:title',               'content' => $ptitle . ' - ' . MAIN_TITLE),
-        array ('_k' => 'pod',   'property' => 'og:description',         'content' => strCat ($d, 300, false))),
+        array ('_k' => 'pod',   'property' => 'og:description',         'content' => strCat ($d, 200, false))),
       'jsonLd' => $load->jsonLd (array ('@context' => 'http://schema.org', '@type' => 'Article', 'url' => PAGE_URL_TIMELINE, 'mainEntityOfPage' => array ('@type' => 'WebPage', '@id' => PAGE_URL_TIMELINE), 'headline' => $ptitle, 'image' => array ('@type' => 'ImageObject', 'url' => MAIN_OG_URL, 'height' => 630, 'width' => 1200), 'datePublished' => date ('c'), 'dateModified' => date ('c'), 'author' => array ('@type' => 'Person', 'name' => OA_NAME, 'url' => PAGE_URL_INDEX, 'image' => array ('@type' => 'ImageObject', 'url' => avatarUrl (OA_FB_UID))), 'publisher' => array ('@type' => 'Organization', 'name' => MAIN_TITLE, 'logo' => array ('@type' => 'ImageObject', 'url' => URL_IMG_LOGO_AMP, 'width' => 600, 'height' => 60)), 'description' => strCat ($d, 150))),
       'link'   => $load->link (
         array ('_k' => 'rc', 'rel' => 'canonical', 'href' => PAGE_URL_TIMELINE),
@@ -225,7 +225,7 @@ class Build {
           array ('_k' => 'pou', 'property' => 'og:url',         'content' => PAGE_URL_LICENSE),
           array ('_k' => 'poi', 'property' => 'og:title',       'content' => $ptitle . ' - ' . MAIN_TITLE),
           array ('_k' => 'nd',  'name' => 'description',        'content' => strCat ($d, 150)),
-          array ('_k' => 'pod', 'property' => 'og:description', 'content' => strCat ($d, 300, false))),
+          array ('_k' => 'pod', 'property' => 'og:description', 'content' => strCat ($d, 200, false))),
       'jsonLd' => $load->jsonLd (array ('@context' => 'http://schema.org', '@type' => 'Article', 'url' => PAGE_URL_LICENSE, 'mainEntityOfPage' => array ('@type' => 'WebPage', '@id' => PAGE_URL_LICENSE), 'headline' => $ptitle, 'image' => array ('@type' => 'ImageObject', 'url' => MAIN_OG_URL, 'height' => 630, 'width' => 1200), 'datePublished' => date ('c'), 'dateModified' => date ('c'), 'author' => array ('@type' => 'Person', 'name' => OA_NAME, 'url' => PAGE_URL_INDEX, 'image' => array ('@type' => 'ImageObject', 'url' => avatarUrl (OA_FB_UID))), 'publisher' => array ('@type' => 'Organization', 'name' => MAIN_TITLE, 'logo' => array ('@type' => 'ImageObject', 'url' => URL_IMG_LOGO_AMP, 'width' => 600, 'height' => 60)), 'description' => strCat ($d, 150))),
       'link'   => $load->link (array ('_k' => 'rc', 'rel' => 'canonical', 'href' => PAGE_URL_LICENSE), array ('_k' => 'ra', 'rel' => 'alternate', 'href' => PAGE_URL_LICENSE, 'hreflang' => 'zh-Hant')),
       'scopes' => $load->scope (array ('href' => PAGE_URL_INDEX, 'title' => MAIN_TITLE), array ('href' => PAGE_URL_LICENSE, 'title' => $ptitle)),
@@ -265,7 +265,7 @@ class Build {
               array ('_k' => 'nd',  'name' => 'description',        'content' => strCat ($desc, 150)),
               array ('_k' => 'pou', 'property' => 'og:url',         'content' => $url . $html),
               array ('_k' => 'poi', 'property' => 'og:title',       'content' => $ptitle . ' - ' . MAIN_TITLE),
-              array ('_k' => 'pod', 'property' => 'og:description', 'content' => strCat ($desc, 300, false))),
+              array ('_k' => 'pod', 'property' => 'og:description', 'content' => strCat ($desc, 200, false))),
             'jsonLd' => $load->jsonLd (array (
               '@context' => 'http://schema.org', '@type' => 'ItemList',
               'itemListElement' => array_map (function ($item) use ($offset, &$i) {
@@ -301,7 +301,7 @@ class Build {
             array ('_k' => 'nd',  'name' => 'description',        'content' => strCat ($desc, 150)),
             array ('_k' => 'pou', 'property' => 'og:url',         'content' => $url . $html),
             array ('_k' => 'poi', 'property' => 'og:title',       'content' => $ptitle . ' - ' . MAIN_TITLE),
-            array ('_k' => 'pod', 'property' => 'og:description', 'content' => strCat ($desc, 300, false))),
+            array ('_k' => 'pod', 'property' => 'og:description', 'content' => strCat ($desc, 200, false))),
           'link' => $load->link (
             array ('_k' => 'rc', 'rel' => 'canonical', 'href' => $url . $html),
             array ('_k' => 'ra', 'rel' => 'alternate', 'href' => $url . $html, 'hreflang' => 'zh-Hant')),
@@ -335,7 +335,7 @@ class Build {
           array ('_k' => 'nd',    'name' => 'description',                'content' => strCat ($d = $item['content'], 150)),
           array ('_k' => 'pou',   'property' => 'og:url',                 'content' => $item['_url']),
           array ('_k' => 'poi',   'property' => 'og:title',               'content' => $item['title'] . ' - ' . MAIN_TITLE),
-          array ('_k' => 'pod',   'property' => 'og:description',         'content' => strCat ($d, 300, false)),
+          array ('_k' => 'pod',   'property' => 'og:description',         'content' => strCat ($d, 200, false)),
           array ('_k' => 'pam',   'property' => 'article:modified_time',  'content' => datetime2Format ($item['updated_at'])),
           array ('_k' => 'papt',  'property' => 'article:published_time', 'content' => datetime2Format ($item['created_at'])),
           array ('_k' => 'poil',  'property' => 'og:image',               'content' => $item['cover']['c1200x630'],             'tag' => 'larger', 'alt' => $item['title'] . ' - ' . MAIN_TITLE),
