@@ -1,4 +1,4 @@
-<main id="main">
+<main id="main" data-id='<?php echo $license['id'];?>' data-orm='Article'>
   <div>
     
     <article class="p p580 ar">
