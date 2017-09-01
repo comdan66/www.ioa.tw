@@ -328,6 +328,8 @@ class Build {
         $others = count ($others) > 2 ? array_slice ($others, 0, 3) : array ();
       }
 
+      $tags = array_unique (array_filter ($item['tag'] ? array_push (columnArray ($item['tags'], 'name'), $item['tag']) : columnArray ($item['tags'], 'name')));
+
       if (!myWriteFile ($item['_path'], $load->frame (array (
         'title'  => $load->title ($item['title']),
         'meta'   => $load->meta (
