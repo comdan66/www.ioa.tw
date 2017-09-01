@@ -81,8 +81,8 @@ class Build {
       'title'  => $load->title ($ptitle),
       'meta'   => $load->meta (
         array ('_k' => 'poi',  'property' => 'og:title',           'content' => $ptitle . ' - ' . MAIN_TITLE),
-        array ('_k' => 'pam',  'property' => 'obj:modified_time',  'content' => datetime2Format ($this->apis['home']['updated_at'])),
-        array ('_k' => 'papt', 'property' => 'obj:published_time', 'content' => datetime2Format ($this->apis['home']['created_at']))),
+        array ('_k' => 'pam',  'property' => 'article:modified_time',  'content' => datetime2Format ($this->apis['home']['updated_at'])),
+        array ('_k' => 'papt', 'property' => 'article:published_time', 'content' => datetime2Format ($this->apis['home']['created_at']))),
       'jsonLd' => $load->jsonLd (array (
         '@context' => 'http://schema.org', '@type' => 'Organization',
         'name' => MAIN_TITLE, 'url' => PAGE_URL_INDEX,
