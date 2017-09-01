@@ -327,8 +327,10 @@ class Build {
         shuffle ($others);
         $others = count ($others) > 2 ? array_slice ($others, 0, 3) : array ();
       }
-
-      $tags = array_unique (array_filter (isset ($item['tag']['title']) && $item['tag']['title'] ? array_push (columnArray ($item['tags']['title'], 'name'), $item['tag']['title']) : columnArray ($item['tags'], 'name')));
+      $tags = columnArray ($item['tags'], 'name');
+      array_push ($tags, isset ($item['tag']['title']) && $item['tag']['title'] ? $item['tag']['title'] : '');
+      $tags = array_unique (array_filter ($tags));
+      
 
       if (!myWriteFile ($item['_path'], $load->frame (array (
         'title'  => $load->title ($item['title']),
