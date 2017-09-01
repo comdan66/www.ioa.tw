@@ -67,7 +67,7 @@ define ('MAIN_TITLE',         "OA Wu's Blog");
 define ('MAIN_KEYWORDS',      'OA, OA Wu, 吳政賢, 北港, 朝天宮, 媽祖, Google Maps, JavaScript, Java, HTML, CSS, iOS, Object-C, MySQL');
 define ('MAIN_DESCRIPTION',   'Hi，您好！我叫吳政賢，你可以叫我 OA，這裡是一個紀錄我個生活、技術心得網站，其中收錄了我從大學以來多項作品、開發經驗、生活瑣事，如果裡面文章對大家是有所幫助的話，也歡迎大家分享呦！');
 
-define ('MAIN_OG_URL',        URL_IMG_OG . 'v1.jpg');
+define ('MAIN_OG_URL',        URL_IMG_OG . 'v1_tiny.png');
 
 define ('FB_URL',             'https://www.facebook.com/comdan66');
 define ('OA_NAME',            'OA Wu');
