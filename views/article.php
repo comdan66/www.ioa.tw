@@ -56,7 +56,7 @@
                     <img alt="<?php echo $other['title'];?> - <?php echo MAIN_TITLE;?>" src="<?php echo $other['icon']['c300x300'];?>" />
                     <figcaption><?php echo $other['title'];?><figcaption>
                   </figure>
-                  <b><?php echo $other['title'];?></b>
+                  <b<?php echo $other['tag']['title'] ? ' data-tip="' . $other['tag']['title'] . '"' : '';?><?php echo $other['tag']['key'] ? ' class="c' . $other['tag']['key'] . '"' : '';?>><?php echo $other['title'];?></b>
                   <span><?php echo strCat ($other['title'], 100);?></span>
                 </a>
         <?php } ?>
