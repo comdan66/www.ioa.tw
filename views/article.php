@@ -46,10 +46,10 @@
         </article>
 <?php }
       if ($others) { ?>
-        <article class="p p580 ar ar2">
+        <article class="p p580 ar ar2 ot">
           <section class="s">
             <header>推薦文章</header>
-            <div class="ot">
+            <div>
         <?php foreach ($others as $other) { ?>
                 <a href="<?php echo $other['_url'];?>">
                   <figure class="_ic">

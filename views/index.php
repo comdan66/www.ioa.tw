@@ -18,10 +18,10 @@
       <time title="最後編輯日期"><?php echo datetime2Format ($home['updated_at'], 'Y.m.d');?></time>
     </article>
 
-    <article class="p p580 ar">
+    <article class="p p580 ar ot">
       <section class="s">
         <header>接著請看</header>
-        <div class="ot">
+        <div>
           <a href="<?php echo PAGE_URL_DEVS;?>">
             <i class="icon-t"></i>
             <b>開發心得</b>
