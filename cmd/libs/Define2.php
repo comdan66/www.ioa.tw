@@ -61,7 +61,7 @@ define ('URL_IMG',             URL . 'img' . '/');
 define ('URL_IMG_OG',          URL_IMG . 'og' . '/');
 define ('URL_IMG_FAVICON',     URL_IMG . 'favicon' . '/' . 'v3' . '/');
 define ('URL_IMG_LOGO',        URL_IMG . 'logo' . '/');
-define ('URL_IMG_LOGO_AMP',    URL_IMG_LOGO . 'amp_logo_600x60.png');
+define ('URL_IMG_LOGO_AMP',    URL_IMG_LOGO . 'amp_logo_600x60_v1.png');
 
 define ('MAIN_TITLE',         "OA Wu's Blog");
 define ('MAIN_KEYWORDS',      'OA, OA Wu, 吳政賢, 北港, 朝天宮, 媽祖, Google Maps, JavaScript, Java, HTML, CSS, iOS, Object-C, MySQL');

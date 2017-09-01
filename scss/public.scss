@@ -790,22 +790,6 @@ a {
   margin: 0 auto;
   text-align: left;
   word-break: break-all;
-  &.ar2 {
-    background-color: transparent;
-    padding-left: 0;
-    padding-right: 0;
-    @include box-shadow(none);
-    .ot > a {
-      background-color: white;
-    }
-    > .s {
-      .ot {
-        width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-      }
-    }
-  }
 
   > * {
     + * {
@@ -1070,107 +1054,107 @@ a {
         }
       }
     }
-    &.f, .ot {
+    &.f {
       width: calc(100% + 16px * 2);
       margin-left: -16px;
       margin-right: -16px;
     }
     // .ar2 
-    .ot {
-      @include clearfix();
-      > a {
-        display: inline-block;
-        float: left;
-        overflow: hidden;
-        @include border-radius(2px);
-        @include transition(box-shadow .3s);
-        // @include box-shadow(0 0 1px rgba(0,0,0,.15), 0 1px 3px rgba(0,0,0,.24), 0 -1px 1px rgba(0,0,0,0.1));
-        @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
+    // .ot {
+    //   @include clearfix();
+    //   > a {
+    //     display: inline-block;
+    //     float: left;
+    //     overflow: hidden;
+    //     @include border-radius(2px);
+    //     @include transition(box-shadow .3s);
+    //     // @include box-shadow(0 0 1px rgba(0,0,0,.15), 0 1px 3px rgba(0,0,0,.24), 0 -1px 1px rgba(0,0,0,0.1));
+    //     @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
 
-        i, figure {
-          position: relative;
-          height: 120px;
-          overflow: hidden;
-        }
-        i {
-          line-height: 120px;
-          color: rgba(255, 255, 255, .75);
-          text-align: center;
-          font-size: 34px;
-          width: 100%;
-          display: inline-block;
-          &.icon-t {
-            background-color: rgba(121, 169, 247, 1.00);
-          }
-          &.icon-v {
-            background-color: adjust-lightness(rgba(52, 165, 81, 1.00), 15%);
-          }
-          &.icon-g {
-            background-color: adjust-lightness(rgba(246, 114, 128, 1.00), 5%);
-          }
-        }
-        figure {
-          position: relative;
-          &:before {
-            position: absolute;
-            display: inline-block;
-            content: '';
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            border-bottom: 1px solid rgba(0, 0, 0, .1);
-          }
+    //     i, figure {
+    //       position: relative;
+    //       height: 120px;
+    //       overflow: hidden;
+    //     }
+    //     i {
+    //       line-height: 120px;
+    //       color: rgba(255, 255, 255, .75);
+    //       text-align: center;
+    //       font-size: 34px;
+    //       width: 100%;
+    //       display: inline-block;
+    //       &.icon-t {
+    //         background-color: rgba(121, 169, 247, 1.00);
+    //       }
+    //       &.icon-v {
+    //         background-color: adjust-lightness(rgba(52, 165, 81, 1.00), 15%);
+    //       }
+    //       &.icon-g {
+    //         background-color: adjust-lightness(rgba(246, 114, 128, 1.00), 5%);
+    //       }
+    //     }
+    //     figure {
+    //       position: relative;
+    //       &:before {
+    //         position: absolute;
+    //         display: inline-block;
+    //         content: '';
+    //         top: 0;
+    //         left: 0;
+    //         bottom: 0;
+    //         right: 0;
+    //         border-bottom: 1px solid rgba(0, 0, 0, .1);
+    //       }
 
-          figcaption {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            display: inline-block;
-            color: white;
-            padding: 0 4px;
-            @include overflow-docx3();
-            @include opacity(0);
-          }
-          img {
-            width: 100%;
-          }
-        }
-        b, span {
-          padding: 0 16px;
-          overflow: hidden;
-          @include transition(color .3s);
-        }
-        b {
-          display: inline-block;
-          width: 100%;
-          height: 30px;
-          line-height: 30px;
-          margin-top: 8px;
-          color: rgba(65, 65, 65, .900);
-          @include overflow-docx3();
-        }
-        span {
-          margin-top: 4px;
-          margin-bottom: 12px;
-          font-size: 10px;
-          height: 20px * 2;
-          line-height: 20px;
-          color: rgba(65, 65, 65, .750);
-        }
-        &:hover {
-          // @include box-shadow(0 0 1px rgba(0,0,0,.2), 0 1px 4px rgba(0,0,0,.3), 0 -1px 1px rgba(0,0,0,0.15));
-          @include box-shadow(0 -1px 0 #e0e0e0, 0 0 4px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.1));
-          b {
-            color: rgba(65, 65, 65, 1);
-          }
+    //       figcaption {
+    //         position: absolute;
+    //         left: 0;
+    //         bottom: 0;
+    //         display: inline-block;
+    //         color: white;
+    //         padding: 0 4px;
+    //         @include overflow-docx3();
+    //         @include opacity(0);
+    //       }
+    //       img {
+    //         width: 100%;
+    //       }
+    //     }
+    //     b, span {
+    //       padding: 0 16px;
+    //       overflow: hidden;
+    //       @include transition(color .3s);
+    //     }
+    //     b {
+    //       display: inline-block;
+    //       width: 100%;
+    //       height: 30px;
+    //       line-height: 30px;
+    //       margin-top: 8px;
+    //       color: rgba(65, 65, 65, .900);
+    //       @include overflow-docx3();
+    //     }
+    //     span {
+    //       margin-top: 4px;
+    //       margin-bottom: 12px;
+    //       font-size: 10px;
+    //       height: 20px * 2;
+    //       line-height: 20px;
+    //       color: rgba(65, 65, 65, .750);
+    //     }
+    //     &:hover {
+    //       // @include box-shadow(0 0 1px rgba(0,0,0,.2), 0 1px 4px rgba(0,0,0,.3), 0 -1px 1px rgba(0,0,0,0.15));
+    //       @include box-shadow(0 -1px 0 #e0e0e0, 0 0 4px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.1));
+    //       b {
+    //         color: rgba(65, 65, 65, 1);
+    //       }
 
-          span {
-            color: rgba(65, 65, 65, 1);
-          }
-        }
-      }
-    }
+    //       span {
+    //         color: rgba(65, 65, 65, 1);
+    //       }
+    //     }
+    //   }
+    // }
   }
   .s > figure {
     position: relative;
@@ -1274,6 +1258,23 @@ a {
   // }
 }
 
+.ot {
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+  @include box-shadow(none);
+
+  > .s > div {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+
+    > a {
+      position: relative;
+      display: inline-block;
+    }
+  }
+}
 .l {
   &:empty, &.e {
     &:before {
@@ -2645,12 +2646,12 @@ a {
   .ps + .ps {
     margin-top: 8px;
   }
-  .ar > .s .ot > a {
-    width: 100%;
-    + a {
-      margin-top: 16px;
-    }
-  }
+  // .ar > .s .ot > a {
+  //   width: 100%;
+  //   + a {
+  //     margin-top: 16px;
+  //   }
+  // }
   .t {
     padding: 0 8px;
     &:first-child {
@@ -2680,6 +2681,152 @@ a {
   .s > p > iframe {
     height: 200px;
   }
+
+  .ot > .s > header {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+  .ot > .s > div {
+    padding: 2px;
+    background-color: white;
+    @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
+    > a {
+      $h: 64px;
+      width: 100%;
+      height: $h;
+      @include clearfix();
+      
+      &:before, &:after {
+        position: absolute;
+        display: inline-block;
+      }
+      &:before {
+        content: '';
+        top: -1px;
+        left: $h + 2px;
+        display: none;
+        width: calc(100% - #{$h});
+        height: 1px;
+        background-color: rgba(230, 230, 230, 1);
+      }
+      &:after {
+        content: "\e315";
+        font-family: "icomoon"; speak: none; font-style: normal; font-weight: normal; font-variant: normal;
+        @include font-smoothing(antialiased);
+        color: rgba(175, 175, 175, 1);
+        top: 0;
+        right: 0;
+        width: 40px;
+        height: $h;
+        line-height: $h;
+        text-align: center;
+        font-size: 24px;
+        z-index: 1;
+        @include transition(color .3s);
+      }
+      + a:before {
+        display: inline-block;
+      }
+
+      i, figure {
+        position: relative;
+        float: left;
+        margin-top: 10px;
+        margin-left: 10px;
+        width: $h - 10px * 2;
+        height: $h - 10px * 2;
+        line-height:$h - 10px * 2;
+        overflow: hidden;
+        font-size: 20px;
+        display: inline-block;
+        text-align: center;
+        color: rgba(255, 255, 255, .75);
+        @include border-radius(2px);
+
+        &.icon-t {
+          background-color: rgba(121, 169, 247, 1.00);
+        }
+        &.icon-v {
+          background-color: adjust-lightness(rgba(52, 165, 81, 1.00), 15%);
+        }
+        &.icon-g {
+          background-color: adjust-lightness(rgba(246, 114, 128, 1.00), 5%);
+        }
+        figcaption {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          @include overflow-docx3();
+          @include opacity(0);
+        }
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
+      figure:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        border: 1px solid rgba(0, 0, 0, .15);
+      }
+      b, span {
+        float: right;
+        width: calc(100% - #{$h});
+        padding-left: 8px;
+        padding-right: 40px;
+        @include overflow-docx3();
+        @include transition(color .3s);
+      }
+      b {
+        margin-top: 10px;
+        height: 25px;
+        line-height: 25px;
+        color: rgba(65, 65, 65, .850);
+
+        &[data-tip]:not([data-tip='']) {
+          &:before {
+            content: attr(data-tip);
+            font-size: 10px;
+            display: inline-block;
+            height: 17px;
+            line-height: 17px - 2px;
+            margin-top: (25px - 17px) / 2;
+            padding: 0 8px;
+            margin-right: 4px;
+            color: rgba(255, 255, 255, 1);
+            border: 1px solid rgba(0, 0, 0, .10);
+            @include border-radius(18px / 2);
+            @include opacity(.75);
+            
+            background-color: rgba(39, 40, 34, 1.00);
+          }
+          &.c1 {
+            display: none;
+          }
+          &.c2:before {
+          }
+          @for $i from 1 through length($tagColors) {
+            &.c#{$i + 1}:before {
+              $b: nth($tagColors, $i);
+              @include contrasted($b, rgba(55, 55, 55, 1.00), rgba(255, 255, 255, 1.00));
+              background-color: $b;
+            }
+          }
+        }
+      }
+      span {
+        margin-top: -4px;
+        height: 20px;
+        line-height: 20px;
+        font-size: 12px;
+        color: rgba(65, 65, 65, .750);
+      }
+    }
+  }
 }
 @include range-width($mobiletWidth) {
   #info_ckb {
@@ -2691,6 +2838,122 @@ a {
   }
   .ps + .ps {
     margin-top: 16px;
+  }
+  .ot > .s > div {
+    @include clearfix();
+
+    > a {
+      float: left;
+      overflow: hidden;
+      background-color: white;
+      @include border-radius(2px);
+      @include transition(box-shadow .3s);
+      @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
+
+      i, figure {
+        position: relative;
+        height: 120px;
+        overflow: hidden;
+      }
+      i {
+        line-height: 120px;
+        color: rgba(255, 255, 255, .75);
+        text-align: center;
+        font-size: 34px;
+        width: 100%;
+        display: inline-block;
+        &.icon-t {
+          background-color: rgba(121, 169, 247, 1.00);
+        }
+        &.icon-v {
+          background-color: adjust-lightness(rgba(52, 165, 81, 1.00), 15%);
+        }
+        &.icon-g {
+          background-color: adjust-lightness(rgba(246, 114, 128, 1.00), 5%);
+        }
+      }
+      figure {
+        &:before {
+          position: absolute;
+          display: inline-block;
+          content: '';
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          border-bottom: 1px solid rgba(0, 0, 0, .1);
+        }
+
+        figcaption {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          display: inline-block;
+          color: white;
+          padding: 0 4px;
+          @include overflow-docx3();
+          @include opacity(0);
+        }
+        img {
+          width: 100%;
+        }
+      }
+      b, span {
+        padding: 0 16px;
+        overflow: hidden;
+        @include transition(color .3s);
+      }
+      b {
+        display: inline-block;
+        width: 100%;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 8px;
+        color: rgba(65, 65, 65, .900);
+        @include overflow-docx3();
+      }
+      span {
+        margin-top: 4px;
+        margin-bottom: 12px;
+        font-size: 10px;
+        height: 20px * 2;
+        line-height: 20px;
+        color: rgba(65, 65, 65, .750);
+      }
+      &:hover {
+        @include box-shadow(0 -1px 0 #e0e0e0, 0 0 4px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.1));
+        b {
+          color: rgba(65, 65, 65, 1);
+        }
+
+        span {
+          color: rgba(65, 65, 65, 1);
+        }
+      }
+    }
+  }
+}
+
+@include range-width($mobiletWidth, 620px) {
+  .ot > .s > div > a {
+    width: calc(100% / 2 - 16px * 1 / 2);
+      
+    &:nth-child(2) {
+      margin-left: 16px;
+    }
+    &:nth-child(3) {
+      display: none;
+    }
+  }
+}
+@include range-width(620px, $tabletWidth) {
+  .ot > .s > div > a {
+    width: calc(100% / 3 - 16px * 2 / 3);
+      
+    &:nth-child(2) {
+      margin-left: 16px;
+      margin-right: 16px;
+    }
   }
 }
 @include range-width($mobiletWidth, 650px) {
@@ -2712,7 +2975,7 @@ a {
   }
   .ar {
     > .s {
-      &.f, .ot {
+      &.f {
         width: 100%;
         margin-left: 0;
         margin-right: 0;
@@ -2724,7 +2987,7 @@ a {
         padding-right: 8px;
       }
       > .s {
-        &.f, .ot {
+        &.f {
           width: calc(100% - 8px * 2);
           margin-left: 8px;
           margin-right: 8px;
@@ -2755,6 +3018,10 @@ a {
   // }
   #u .r {
     left: 16px;
+  }
+  .ot {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 @include range-width(650px, $tabletWidth) {
@@ -3040,6 +3307,47 @@ a {
       ~ #main #l {
         @include lm2;
       }
+    }
+  }
+};
+
+@include range-width($tabletWidth, 800px) {
+  #menu_ckb {
+    &:not(:checked) {
+      ~ #main {
+        .ot > .s > div > a {
+          width: calc(100% / 2 - 16px * 1 / 2);
+            
+          &:nth-child(2) {
+            margin-left: 16px;
+          }
+          &:nth-child(3) {
+            display: none;
+          }
+        }
+      }
+    }
+    &:checked {
+      ~ #main {
+        .ot > .s > div > a {
+          width: calc(100% / 3 - 16px * 2 / 3);
+            
+          &:nth-child(2) {
+            margin-left: 16px;
+            margin-right: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+@include range-width(800px) {
+  .ot > .s > div > a {
+    width: calc(100% / 3 - 16px * 2 / 3);
+      
+    &:nth-child(2) {
+      margin-left: 16px;
+      margin-right: 16px;
     }
   }
 };
