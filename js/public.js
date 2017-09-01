@@ -30,7 +30,10 @@ function oasort (n, b) { if (n == 0) return []; if (n == 1) return [1]; if (n ==
 $(function () {
   var $_body = $('body');
 
-  window.callAddPv = function (id, orm) {
+  function fsg (key) { return ((typeof (Storage) !== 'undefined') && (value = localStorage.getItem (key)) && (value = JSON.parse (value))) ? value : undefined; };
+  function fss (key, data) { try { if (typeof (Storage) !== 'undefined') { localStorage.setItem (key, JSON.stringify (data)); return true; } return false; } catch (err) { console.error ('Set storage failure.', error); return false; } };
+
+  window.callAddPv = function (orm, id) {
     $.ajax ({
         url: $('#pv').val (),
         data: { orm: orm, id: id },
@@ -159,6 +162,10 @@ $(function () {
   $('.pvid[data-id][data-orm]').each (function () {
     var id = $(this).data ('id'), orm = $(this).data ('orm');
     if (!(!isNaN (id) && orm.length)) return;
-    window.callAddPv (id, orm);
+    window.callAddPv (orm, id);
   });
+
+  var n = fsg ('www.ioa.tw-notice'); // 天
+  if (!n || (n + 1000 * 60 * 60 * 24) < new Date ().getTime ())
+    setTimeout (function () { $(this).addClass ('n').click (function () { $(this).removeClass ('n'); fss ('www.ioa.tw-notice', new Date ().getTime ()); }); }.bind ($('#header ._ic')), 2400);
 });
