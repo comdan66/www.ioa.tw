@@ -1,4 +1,4 @@
-<article id="i" class="p ar" data-id='<?php echo $item['id'];?>' data-orm='Article'>
+<article id="i" class="p ar pvid" data-id='<?php echo $item['id'];?>' data-orm='Article'>
   <figure class="_ic" data-cnt="10">
     <img alt="<?php echo $item['title'];?> - <?php echo MAIN_TITLE;?>" src="<?php echo $item['cover']['c630x315'];?>" />
   </figure>
