@@ -7,14 +7,16 @@
     <article class="p p580 ar">
       <header>
         <h1><?php echo $item['title'];?></h1>
-        <span>
-          <?php echo $item['tag']['title'] ? '<a href="' . (PAGE_URL_SEARCH . '?q=tag:' . $item['tag']['title']) . '"' . ($item['tag']['key'] ? ' class="c' . $item['tag']['key'] . '"' : '') . '>' . $item['tag']['title'] . '</a>' : '';?>
-    <?php foreach ($item['tags'] as $tag) {
-            if (!($item['tag']['title'] && $tag['name'] == $item['tag']['title'])) { ?>
-              <a href="<?php echo PAGE_URL_SEARCH;?>?q=tags:<?php echo rawurlencode (urlFormat ($tag['name']));?>"><?php echo $tag['name'];?></a>
-      <?php }
-          } ?>
-        </span>
+  <?php if ($item['tag']['title'] || $item['tags']) { ?>
+          <span>
+            <?php echo $item['tag']['title'] ? '<a href="' . (PAGE_URL_SEARCH . '?q=tag:' . $item['tag']['title']) . '"' . ($item['tag']['key'] ? ' class="c' . $item['tag']['key'] . '"' : '') . '>' . $item['tag']['title'] . '</a>' : '';?>
+      <?php foreach ($item['tags'] as $tag) {
+              if (!($item['tag']['title'] && $tag['name'] == $item['tag']['title'])) { ?>
+                <a href="<?php echo PAGE_URL_SEARCH;?>?q=tags:<?php echo rawurlencode (urlFormat ($tag['name']));?>"><?php echo $tag['name'];?></a>
+        <?php }
+            } ?>
+          </span>
+  <?php } ?>
       </header>
 
       <div>
