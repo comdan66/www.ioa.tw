@@ -36,6 +36,8 @@ class Build {
   }
 
   public function getApi ($title) {
+    $this->apis['pv'] = DEV ? 'https://dev.admin.www.ioa.tw/api/pv/' : 'https://admin.www.ioa.tw/api/pv/';
+
     $this->apis['home'] = (($this->apis['home'] = myReadFile (PATH_APIS . 'home.json')) ? json_decode ($this->apis['home'], true) : null);
     $this->apis['license'] = (($this->apis['license'] = myReadFile (PATH_APIS . 'license.json')) ? json_decode ($this->apis['license'], true) : null);
     

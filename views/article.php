@@ -1,4 +1,4 @@
-<main id="main">
+<main id="main" class='pvid' data-id='<?php echo $item['id'];?>' data-orm='Article'>
   <div>
     <figure class="b p580 _ic">
       <img alt="<?php echo $item['title'];?> - <?php echo MAIN_TITLE;?>" src="<?php echo $item['cover']['c1200x630'];?>" />

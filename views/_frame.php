@@ -9,8 +9,9 @@
     <?php echo isset ($jsonLd) ? $jsonLd : '';?>
   </head>
   <body lang="zh-tw">
-    <input type="checkbox" id="menu_ckb" class="_ckbh">
-    <input type="checkbox" id="info_ckb" class="_ckbh">
+    <input type="checkbox" id="menu_ckb" class="_ckbh" />
+    <input type="checkbox" id="info_ckb" class="_ckbh" />
+<?php echo isset ($pv) && $pv ? '<input type="hidden" id="pv" class="_ckbh" value="' . $pv . '" />' : '';?>
 <?php echo isset ($header) && $header ? $header : '';?>
 <?php echo isset ($menu) && $menu ? $menu : '';?>
 <?php echo isset ($info) && $info ? $info : '';?>

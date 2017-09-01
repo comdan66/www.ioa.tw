@@ -29,6 +29,14 @@ function oasort (n, b) { if (n == 0) return []; if (n == 1) return [1]; if (n ==
 
 $(function () {
   var $_body = $('body');
+
+  window.callAddPv = function (id, orm) {
+    $.ajax ({
+        url: $('#pv').val (),
+        data: { orm: orm, id: id },
+        async: true, cache: false, dataType: 'json', type: 'POST',
+    });
+  };
   
   window.OAIPS = {
     ni: 0, $objs: {}, $pswp: null, $conter: null, callPvfunc : null,
@@ -102,12 +110,10 @@ $(function () {
     }
   };
 
-  window.OAIPS.init ($_body, function (orm, id) {
-   
-console.error (orm, id);
-  });
+  window.OAIPS.init ($_body, window.callAddPv);
 
   $('._ic').OAIL ({verticalAlign: 'center'});
+
   $('time[datetime]').timeago ();
 
 
@@ -160,4 +166,10 @@ console.error (orm, id);
 
   
   window.OAIPS.listenUrl ();
+
+  $('.pvid[data-id][data-orm]').each (function () {
+    var id = $(this).data ('id'), orm = $(this).data ('orm');
+    if (!(!isNaN (id) && orm.length)) return;
+    window.callAddPv (id, orm);
+  });
 });
