@@ -8,8 +8,8 @@
   <a href="<?php echo PAGE_URL_DEVS;?>" class="icon-t<?php echo isset ($now) && $now == 'devs' ? ' a': '';?>" data-cnt="<?php echo number_format (count ($devs));?>">開發心得</a>
   <a href="<?php echo PAGE_URL_BLOGS;?>" class="icon-b<?php echo isset ($now) && $now == 'blogs' ? ' a': '';?>" data-cnt="<?php echo number_format (count ($blogs));?>">生活紀錄</a>
   <a href="<?php echo PAGE_URL_UNBOXINGS;?>" class="icon-g<?php echo isset ($now) && $now == 'unboxings' ? ' a': '';?>" data-cnt="<?php echo number_format (count ($unboxings));?>">開箱文章</a>
-  <a href="<?php echo PAGE_URL_TIMELINE;?>" class="icon-v<?php echo isset ($now) && $now == 'timeline' ? ' a': '';?>">成就紀錄</a>
   <a href="<?php echo PAGE_URL_ALBUMS;?>" class="icon-i<?php echo isset ($now) && $now == 'albums' ? ' a': '';?>" data-cnt="<?php echo number_format (count ($albums));?>">個人相簿</a>
+  <a href="<?php echo PAGE_URL_TIMELINE;?>" class="icon-v<?php echo isset ($now) && $now == 'timeline' ? ' a': '';?>">成就紀錄</a>
 
   <footer id="footer">
     <a href="<?php echo PAGE_URL_LICENSE;?>">服務條款 - 授權聲明</a>

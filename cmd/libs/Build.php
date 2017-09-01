@@ -158,21 +158,21 @@ class Build {
   }
   public function timelineHtml ($title) {
     $objs = array_merge (array_map (function ($t) {
-      return array ('n' => $t['icon']['c300x300'], 'i' => 'icon-t', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array ());
+      return array ('n' => $t['icon']['c300x300'], 'i' => 'icon-t', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 120, '…','UTF-8'), 'u' => $t['_url'], 's' => array ());
     }, array_filter ($this->apis['devs'], function ($t) {
       return $t['timeline'] == 2;
     })), array_map (function ($t) {
-      return array ('n' => $t['icon']['c300x300'], 'i' => 'icon-b', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array ());
+      return array ('n' => $t['icon']['c300x300'], 'i' => 'icon-b', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 120, '…','UTF-8'), 'u' => $t['_url'], 's' => array ());
     }, array_filter ($this->apis['blogs'], function ($t) {
       return $t['timeline'] == 2;
     })), array_map (function ($t) {
       return array ('n' => '', 'i' => 'icon-st', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => removeHtmlTag ($t['content']), 'u' => '', 's' => array ());
     }, $this->apis['stars']), array_map (function ($t) {
-      return array ('n' => $t['icon']['c300x300'], 'i' => 'icon-g', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array ());
+      return array ('n' => $t['icon']['c300x300'], 'i' => 'icon-g', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 120, '…','UTF-8'), 'u' => $t['_url'], 's' => array ());
     }, array_filter ($this->apis['unboxings'], function ($t) {
       return $t['timeline'] == 2;
     })), array_map (function ($t) {
-      return array ('n' => '', 'i' => 'icon-i', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 300, '…','UTF-8'), 'u' => $t['_url'], 's' => array_map (function ($u) {
+      return array ('n' => '', 'i' => 'icon-i', 'm' => datetime2Format ($t['date_at'], 'Y-m-d'), 't' => $t['title'], 'c' => mb_strimwidth (removeHtmlTag ($t['content']), 0, 120, '…','UTF-8'), 'u' => $t['_url'], 's' => array_map (function ($u) {
         return array (
           'i' => $u['id'],
           't' => $u['title'],
