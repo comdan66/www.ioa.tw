@@ -13,12 +13,12 @@ class Load {
 
   public function __construct ($pais) {
     $this->pais = $pais;
-
     $this->d4Metas = array (
       array ('_k' => 'c',     'charset' => 'utf-8'),
       array ('_k' => 'hct',   'http-equiv' => 'Content-type',                     'content' => 'text/html; charset=utf-8'),
       array ('_k' => 'hcl',   'http-equiv' => 'Content-Language',                 'content' => 'zh-tw'),
 
+      array ('_k' => 'nv',    'name' => 'google-site-verification',               'content' => 'oP5AjoCz_SS0W6OeLiynUxpE7hnFdhWVZ6zDxRiJQqY'),
       array ('_k' => 'nv',    'name' => 'viewport',                               'content' => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui'),
       array ('_k' => 'nr',    'name' => 'robots',                                 'content' => DEV ? 'noindex,nofollow' : 'index,follow'),
       array ('_k' => 'nk',    'name' => 'keywords',                               'content' => MAIN_KEYWORDS),
