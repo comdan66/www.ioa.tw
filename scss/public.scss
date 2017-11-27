@@ -1017,18 +1017,28 @@ a {
       }
     }
     > pre {
-      @include force-wrap;
-      word-wrap: break-word; 
+      // @include force-wrap;
+      // word-wrap: break-word; 
+      padding: 6px 10px;
       border: 1px solid rgba(220, 220, 220, 1.00);
-      @include border-radius(3px);
       background-color: rgba(243, 244, 244, 1.00);
-    }
-    > p > code {
-      background-color: rgba(243, 244, 244, 1.00);
-      padding: 0 4px;
       @include border-radius(3px);
-      border: 1px solid rgba(220, 220, 220, 1.00);
+      overflow-x: scroll;
+
+      > code {
+        display: inline-block;
+        width: 100%;
+      }
     }
+    > *:not(pre) {
+      code {
+        padding: 0 4px;
+        border: 1px solid rgba(220, 220, 220, 1.00);
+        background-color: rgba(243, 244, 244, 1.00);
+        @include border-radius(3px);
+      }
+    }
+    // > p >
     ul, ol {
       padding-left: 24px;
       li {
