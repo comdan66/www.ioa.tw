@@ -4,6 +4,7 @@ sftp-config*
 cmd/.sass-cache/*
 
 cmd/node_modules/*
+cmd/package-lock.json
 cmd/npm-debug.log
 
 /sitemap/*

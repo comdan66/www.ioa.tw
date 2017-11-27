@@ -1016,7 +1016,19 @@ a {
         }
       }
     }
-
+    > pre {
+      @include force-wrap;
+      word-wrap: break-word; 
+      border: 1px solid rgba(220, 220, 220, 1.00);
+      @include border-radius(3px);
+      background-color: rgba(243, 244, 244, 1.00);
+    }
+    > p > code {
+      background-color: rgba(243, 244, 244, 1.00);
+      padding: 0 4px;
+      @include border-radius(3px);
+      border: 1px solid rgba(220, 220, 220, 1.00);
+    }
     ul, ol {
       padding-left: 24px;
       li {
@@ -1087,102 +1099,6 @@ a {
       margin-left: -16px;
       margin-right: -16px;
     }
-    // .ar2 
-    // .ot {
-    //   @include clearfix();
-    //   > a {
-    //     display: inline-block;
-    //     float: left;
-    //     overflow: hidden;
-    //     @include border-radius(2px);
-    //     @include transition(box-shadow .3s);
-    //     // @include box-shadow(0 0 1px rgba(0,0,0,.15), 0 1px 3px rgba(0,0,0,.24), 0 -1px 1px rgba(0,0,0,0.1));
-    //     @include box-shadow(0 -1px 0 #e0e0e0, 0 0 2px rgba(0,0,0,.12), 0 2px 4px rgba(0,0,0,.1));
-
-    //     i, figure {
-    //       position: relative;
-    //       height: 120px;
-    //       overflow: hidden;
-    //     }
-    //     i {
-    //       line-height: 120px;
-    //       color: rgba(255, 255, 255, .75);
-    //       text-align: center;
-    //       font-size: 34px;
-    //       width: 100%;
-    //       display: inline-block;
-    //       &.icon-t {
-    //         background-color: rgba(121, 169, 247, 1.00);
-    //       }
-    //       &.icon-v {
-    //         background-color: adjust-lightness(rgba(52, 165, 81, 1.00), 15%);
-    //       }
-    //       &.icon-g {
-    //         background-color: adjust-lightness(rgba(246, 114, 128, 1.00), 5%);
-    //       }
-    //     }
-    //     figure {
-    //       position: relative;
-    //       &:before {
-    //         position: absolute;
-    //         display: inline-block;
-    //         content: '';
-    //         top: 0;
-    //         left: 0;
-    //         bottom: 0;
-    //         right: 0;
-    //         border-bottom: 1px solid rgba(0, 0, 0, .1);
-    //       }
-
-    //       figcaption {
-    //         position: absolute;
-    //         left: 0;
-    //         bottom: 0;
-    //         display: inline-block;
-    //         color: white;
-    //         padding: 0 4px;
-    //         @include overflow-docx3();
-    //         @include opacity(0);
-    //       }
-    //       img {
-    //         width: 100%;
-    //       }
-    //     }
-    //     b, span {
-    //       padding: 0 16px;
-    //       overflow: hidden;
-    //       @include transition(color .3s);
-    //     }
-    //     b {
-    //       display: inline-block;
-    //       width: 100%;
-    //       height: 30px;
-    //       line-height: 30px;
-    //       margin-top: 8px;
-    //       color: rgba(65, 65, 65, .900);
-    //       @include overflow-docx3();
-    //     }
-    //     span {
-    //       margin-top: 4px;
-    //       margin-bottom: 12px;
-    //       font-size: 10px;
-    //       height: 20px * 2;
-    //       line-height: 20px;
-    //       color: rgba(65, 65, 65, .750);
-    //     }
-    //     &:hover {
-    //       // @include box-shadow(0 0 1px rgba(0,0,0,.2), 0 1px 4px rgba(0,0,0,.3), 0 -1px 1px rgba(0,0,0,0.15));
-    //       @include box-shadow(0 -1px 0 #e0e0e0, 0 0 4px rgba(0,0,0,.12), 0 2px 6px rgba(0,0,0,.1));
-    //       b {
-    //         color: rgba(65, 65, 65, 1);
-    //       }
-
-    //       span {
-    //         color: rgba(65, 65, 65, 1);
-    //       }
-    //     }
-    //   }
-    // }
   }
   .s > figure {
     position: relative;
