@@ -30,7 +30,7 @@
     <meta property="article:modified_time" content="<?php echo date ('c');?>" />
     <meta property="article:published_time" content="<?php echo date ('c');?>" />
 
-    <meta property="og:image" tag="larger" content="https://www.ioa.tw/img/og/v2_tiny.png" alt="吳政賢 - 個人簡歷" />
+    <meta property="og:image" tag="larger" content="https://www.ioa.tw/img/og/v3_tiny.png" alt="吳政賢 - 個人簡歷" />
     <meta property="og:image:type" tag="larger" content="image/png" />
     <meta property="og:image:width" tag="larger" content="1200" />
     <meta property="og:image:height" tag="larger" content="630" />
