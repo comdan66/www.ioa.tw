@@ -22,7 +22,7 @@ class Build {
     $ps = array (PATH_ASSET, PATH_SITEMAP, PATH_DEVS, PATH_BLOGS, PATH_UNBOXINGS, PATH_ALBUMS, PATH_ARTICLE, PATH_ALBUM);
     foreach ($ps as $p) deleteDir ($p);
 
-    $fs = array (PAGE_PATH_INDEX, PAGE_PATH_TIMELINE, PAGE_PATH_LICENSE, PAGE_PATH_SEARCH, JS_PATH_SEARCH, JS_PATH_TIMELINE);
+    $fs = array (PAGE_PATH_INDEX, PAGE_PATH_TIMELINE, PAGE_PATH_LICENSE, PAGE_PATH_CAKERESUME, PAGE_PATH_SEARCH, JS_PATH_SEARCH, JS_PATH_TIMELINE);
 
     foreach ($fs as $f) @unlink ($f);
   }
@@ -238,6 +238,13 @@ class Build {
     ))))) return $this->error ($title . '失敗！');
 
     array_push ($this->sitemapInfos, array ('uri' => '/' . str_replace (URL, '', PAGE_URL_LICENSE), 'priority' => '0.7', 'changefreq' => 'daily', 'lastmod' => date ('c')));
+  }
+  public function cakeresumeHtml ($title) {
+    $ptitle = '吳政賢個人履歷';
+    $d = '嗨，我叫吳政賢，因為很喜歡完成一項作品的成就感，所以喜歡上寫程式。 大學時期主修資訊工程，所以大學時就有 C 語言、Java 的程式基礎，因為專題還接觸了 Arduino 與 PHP 網頁開發。 因為大學相關科系關係，畢業後就先以 C 語言、組合語言為環境的筆電 BIOS 工作進入職場，但最後因為還是喜歡完成應用程式的快感，於是選擇自己所愛的興趣，回到應用程式層面的工作。 很喜愛開發出一項專案或產品的成就感，也很喜愛分享經驗，所以我也把所有我個人研究的專案公開在 GitHub 上，也不時的寫寫 Blog 心得文章，以下就分幾個大項目介紹我自己吧！';
+
+    if (!(($load = new Load ($this->apis)) && myWriteFile (PAGE_PATH_CAKERESUME, $load->cakeresume ())))
+      return $this->error ($title . '失敗！');
   }
   public function listHtml ($ptitle, $url, $path, $apiKey, $desc = MAIN_DESCRIPTION) {
     $limit = $apiKey !== 'albums' ? 10 : 12;

@@ -5,12 +5,13 @@
  * @license     http://creativecommons.org/licenses/by-nc/2.0/tw/
  */
 
-define ('PAGE_PATH_INDEX',    PATH . 'index' . HTML);
-define ('PAGE_PATH_TIMELINE', PATH . 'timeline' . HTML);
-define ('PAGE_PATH_LICENSE',  PATH . 'license' . HTML);
-define ('PAGE_PATH_SEARCH',   PATH . 'search' . HTML);
-define ('JS_PATH_SEARCH',     PATH . 'js' . DIRECTORY_SEPARATOR . 'search' . JS);
-define ('JS_PATH_TIMELINE',   PATH . 'js' . DIRECTORY_SEPARATOR . 'time' . JS);
+define ('PAGE_PATH_INDEX',      PATH . 'index' . HTML);
+define ('PAGE_PATH_TIMELINE',   PATH . 'timeline' . HTML);
+define ('PAGE_PATH_LICENSE',    PATH . 'license' . HTML);
+define ('PAGE_PATH_CAKERESUME', PATH . 'cakeresume' . HTML);
+define ('PAGE_PATH_SEARCH',     PATH . 'search' . HTML);
+define ('JS_PATH_SEARCH',       PATH . 'js' . DIRECTORY_SEPARATOR . 'search' . JS);
+define ('JS_PATH_TIMELINE',     PATH . 'js' . DIRECTORY_SEPARATOR . 'time' . JS);
 
 define ('VIEWS_PATH',         PATH . 'views' . DIRECTORY_SEPARATOR);
 define ('VIEW_PATH_FRAME',    VIEWS_PATH . '_frame' . PHP);

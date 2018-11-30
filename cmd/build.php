@@ -41,6 +41,7 @@ $build->indexHtml ('產生 Index 檔案');
 $build->licenseHtml ('產生 License 檔案');
 $build->searchHtml ('產生 Search 檔案');
 $build->timelineHtml ('產生 Timeline 檔案');
+$build->cakeresumeHtml ('產生 CakeResume 檔案');
 
 $build->listHtml ('開發心得', URL_DEVS,      PATH_DEVS,      'devs',      '這裡有著 ' . OA_NAME . ' 的程式開發心得，其中包含了從大學開始學習的 C 語言、Java、大三學習的 php、MySQL、專題 Arduino 比賽心得，也有出社會後因為工作關係在前、後端領域甚至是 iOS App 的開發心得紀錄！');
 $build->listHtml ('生活紀錄', URL_BLOGS,     PATH_BLOGS,     'blogs',     '自己的部落格系統自己寫，雖然 Coding 很熱血，但其實年紀越大，越會發現生活不只寫程式這件事而已，到處都有你我直得發現的美，讓我們一起來記錄吧。');
